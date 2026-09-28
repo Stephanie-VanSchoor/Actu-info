@@ -8,7 +8,7 @@
 body{font-family:Arial,sans-serif;background:#f4f6f8;color:#1a1a2e;line-height:1.7}
 header{background:#1a1a2e;color:#fff;padding:20px 30px}
 header h1{font-size:22px}
-nav{background:#4f46e5;padding:0 30px;display:flex;flex-wrap:wrap;position:sticky;top:0;z-index:10}
+nav{background:#4f46e5;padding:0 30px;display:flex;flex-wrap:wrap}
 nav a{color:#fff;padding:14px 18px;text-decoration:none;font-weight:600;cursor:pointer}
 nav a:hover{background:rgba(255,255,255,.15)}
 nav a.active{background:rgba(0,0,0,.25)}
@@ -38,16 +38,17 @@ footer{text-align:center;padding:30px;color:#888;margin-top:40px;background:#fff
 <header><h1>Actu Info — Le blog des nouvelles technologies</h1></header>
 
 <nav>
-  <a class="tab active" data-page="accueil" onclick="ouvrirPage('accueil')">🏠 Accueil</a>
-  <a class="tab" data-page="securite" onclick="ouvrirPage('securite')">🔒 Sécurité</a>
-  <a class="tab" data-page="windows" onclick="ouvrirPage('windows')">🪟 Windows</a>
-  <a class="tab" data-page="linux" onclick="ouvrirPage('linux')">🐧 Linux</a>
-  <a class="tab" data-page="ia" onclick="ouvrirPage('ia')">🤖 IA</a>
-  <a class="tab" data-page="web" onclick="ouvrirPage('web')">🌐 Web</a>
+  <a class="tab active" onclick="ouvrirPage('accueil')">🏠 Accueil</a>
+  <a class="tab" onclick="ouvrirPage('securite')">🔒 Sécurité</a>
+  <a class="tab" onclick="ouvrirPage('windows')">🪟 Windows</a>
+  <a class="tab" onclick="ouvrirPage('linux')">🐧 Linux</a>
+  <a class="tab" onclick="ouvrirPage('ia')">🤖 IA</a>
+  <a class="tab" onclick="ouvrirPage('web')">🌐 Web</a>
 </nav>
 
 <main>
 
+<!-- ACCUEIL -->
 <div id="page-accueil">
   <h2 class="titre">📰 Derniers articles</h2>
   <div class="article" onclick="ouvrirArticle('a1')"><h3>Phishing : les 7 signes qui ne trompent pas</h3><div class="meta">28 septembre 2026 — Sécurité</div></div>
@@ -55,23 +56,9 @@ footer{text-align:center;padding:30px;color:#888;margin-top:40px;background:#fff
   <div class="article" onclick="ouvrirArticle('a3')"><h3>Les 15 commandes Linux à connaître</h3><div class="meta">26 septembre 2026 — Linux</div></div>
   <div class="article" onclick="ouvrirArticle('a4')"><h3>ChatGPT : 15 prompts pour gagner du temps</h3><div class="meta">25 septembre 2026 — IA</div></div>
   <div class="article" onclick="ouvrirArticle('a5')"><h3>VPN : comment ça marche vraiment ?</h3><div class="meta">24 septembre 2026 — Sécurité</div></div>
-  <div class="article" onclick="ouvrirArticle('a6')"><h3>Créer un mot de passe vraiment solide</h3><div class="meta">23 septembre 2026 — Sécurité</div></div>
-  <div class="article" onclick="ouvrirArticle('a7')"><h3>Les raccourcis clavier indispensables</h3><div class="meta">22 septembre 2026 — Windows</div></div>
-  <div class="article" onclick="ouvrirArticle('a8')"><h3>Installer Ubuntu facilement</h3><div class="meta">21 septembre 2026 — Linux</div></div>
-  <div class="article" onclick="ouvrirArticle('a9')"><h3>Comprendre le Machine Learning</h3><div class="meta">20 septembre 2026 — IA</div></div>
-  <div class="article" onclick="ouvrirArticle('a10')"><h3>Les bases du HTML et CSS</h3><div class="meta">19 septembre 2026 — Web</div></div>
-  <div class="article" onclick="ouvrirArticle('a11')"><h3>Ransomware : comment s'en protéger</h3><div class="meta">18 septembre 2026 — Sécurité</div></div>
-  <div class="article" onclick="ouvrirArticle('a12')"><h3>Nettoyer Windows sans logiciel</h3><div class="meta">17 septembre 2026 — Windows</div></div>
-  <div class="article" onclick="ouvrirArticle('a13')"><h3>Comprendre le terminal Linux</h3><div class="meta">16 septembre 2026 — Linux</div></div>
-  <div class="article" onclick="ouvrirArticle('a14')"><h3>Midjourney : créer des images avec l'IA</h3><div class="meta">15 septembre 2026 — IA</div></div>
-  <div class="article" onclick="ouvrirArticle('a15')"><h3>Comprendre les API REST</h3><div class="meta">14 septembre 2026 — Web</div></div>
-  <div class="article" onclick="ouvrirArticle('a16')"><h3>La double authentification expliquée</h3><div class="meta">13 septembre 2026 — Sécurité</div></div>
-  <div class="article" onclick="ouvrirArticle('a17')"><h3>SSD vs HDD : que choisir ?</h3><div class="meta">12 septembre 2026 — Windows</div></div>
-  <div class="article" onclick="ouvrirArticle('a18')"><h3>Les meilleures distributions Linux 2026</h3><div class="meta">11 septembre 2026 — Linux</div></div>
-  <div class="article" onclick="ouvrirArticle('a19')"><h3>Comprendre les LLM</h3><div class="meta">10 septembre 2026 — IA</div></div>
-  <div class="article" onclick="ouvrirArticle('a20')"><h3>Git et GitHub : le guide essentiel</h3><div class="meta">9 septembre 2026 — Web</div></div>
 </div>
 
+<!-- SECURITE -->
 <div id="page-securite" style="display:none">
   <h2 class="titre">🔒 Sécurité</h2>
   <div class="article" onclick="ouvrirArticle('a1')"><h3>Phishing : les 7 signes qui ne trompent pas</h3></div>
@@ -81,6 +68,7 @@ footer{text-align:center;padding:30px;color:#888;margin-top:40px;background:#fff
   <div class="article" onclick="ouvrirArticle('a16')"><h3>La double authentification expliquée</h3></div>
 </div>
 
+<!-- WINDOWS -->
 <div id="page-windows" style="display:none">
   <h2 class="titre">🪟 Windows</h2>
   <div class="article" onclick="ouvrirArticle('a2')"><h3>Réparer un PC lent en 30 minutes</h3></div>
@@ -89,6 +77,7 @@ footer{text-align:center;padding:30px;color:#888;margin-top:40px;background:#fff
   <div class="article" onclick="ouvrirArticle('a17')"><h3>SSD vs HDD : que choisir ?</h3></div>
 </div>
 
+<!-- LINUX -->
 <div id="page-linux" style="display:none">
   <h2 class="titre">🐧 Linux</h2>
   <div class="article" onclick="ouvrirArticle('a3')"><h3>Les 15 commandes Linux à connaître</h3></div>
@@ -97,6 +86,7 @@ footer{text-align:center;padding:30px;color:#888;margin-top:40px;background:#fff
   <div class="article" onclick="ouvrirArticle('a18')"><h3>Les meilleures distributions Linux 2026</h3></div>
 </div>
 
+<!-- IA -->
 <div id="page-ia" style="display:none">
   <h2 class="titre">🤖 IA</h2>
   <div class="article" onclick="ouvrirArticle('a4')"><h3>ChatGPT : 15 prompts pour gagner du temps</h3></div>
@@ -105,6 +95,7 @@ footer{text-align:center;padding:30px;color:#888;margin-top:40px;background:#fff
   <div class="article" onclick="ouvrirArticle('a19')"><h3>Comprendre les LLM</h3></div>
 </div>
 
+<!-- WEB -->
 <div id="page-web" style="display:none">
   <h2 class="titre">🌐 Web</h2>
   <div class="article" onclick="ouvrirArticle('a10')"><h3>Les bases du HTML et CSS</h3></div>
@@ -112,7 +103,8 @@ footer{text-align:center;padding:30px;color:#888;margin-top:40px;background:#fff
   <div class="article" onclick="ouvrirArticle('a20')"><h3>Git et GitHub : le guide essentiel</h3></div>
 </div>
 
-<div id="zone-contenu"></div>
+<!-- ZONE ARTICLE (cachée au début) -->
+<div id="zone-contenu" style="display:none"></div>
 
 </main>
 
@@ -194,9 +186,6 @@ apt install X    # Installer
 top              # Processus
 df -h            # Espace disque
 free -h          # Mémoire libre</pre>
-<h3>💾 Sauvegarde</h3>
-<pre>tar -czvf archive.tar.gz dossier/
-tar -xzvf archive.tar.gz</pre>
 <div class="tip">💡 <strong>Astuce :</strong> man commande affiche le manuel.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
@@ -282,7 +271,6 @@ Windows + V        # Historique presse-papiers</pre>
 <pre>Ctrl + T           # Nouvel onglet
 Ctrl + W           # Fermer
 Ctrl + Shift + T   # Rouvrir onglet fermé
-Ctrl + Maj + Suppr # Vider cache
 F12                # DevTools</pre>
 <div class="tip">💡 Apprenez 5 raccourcis par semaine.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
@@ -328,10 +316,6 @@ a9:`<h2>Comprendre le Machine Learning</h2><div class="meta">📅 20 septembre 2
 <li>Reconnaissance faciale</li>
 <li>Voitures autonomes</li>
 </ul>
-<h3>🛠️ Débuter</h3>
-<pre>from sklearn.linear_model import LinearRegression
-model = LinearRegression()
-model.fit(X_train, y_train)</pre>
 <div class="tip">💡 Entraînez-vous sur Kaggle.com</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
@@ -350,12 +334,6 @@ a10:`<h2>Les bases du HTML et CSS</h2><div class="meta">📅 19 septembre 2026 �
 p  { color: #666; line-height: 1.6; }</pre>
 <h3>📂 Relier les deux</h3>
 <pre>&lt;link rel="stylesheet" href="style.css"&gt;</pre>
-<h3>🎯 Bases</h3>
-<ul>
-<li>Balises : h1, p, div, a, img</li>
-<li>Attributs : class, id, href, src</li>
-<li>Sélecteurs : balise, .classe, #id</li>
-</ul>
 <div class="tip">💡 F12 pour voir le HTML/CSS d'un site.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
@@ -394,46 +372,30 @@ a12:`<h2>Nettoyer Windows sans logiciel</h2><div class="meta">📅 17 septembre 
 <p>Tape cleanmgr → coche tout → OK.</p>
 <h3>2️⃣ Fichiers temporaires</h3>
 <pre>Windows + R → %temp% → Ctrl+A → Suppr
-Windows + R → temp → Ctrl+A → Suppr
-Windows + R → prefetch → Ctrl+A → Suppr</pre>
+Windows + R → temp → Ctrl+A → Suppr</pre>
 <h3>3️⃣ Vider la corbeille</h3>
 <p>Clic droit → Vider.</p>
 <h3>4️⃣ Désinstaller</h3>
 <p>Paramètres → Applications.</p>
 <h3>5️⃣ Démarrage</h3>
 <p>Ctrl + Shift + Échap → Démarrage.</p>
-<h3>6️⃣ Mises à jour</h3>
-<p>Windows Update.</p>
 <div class="tip">💡 Une fois par mois.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a13:`<h2>Comprendre le terminal Linux</h2><div class="meta">📅 16 septembre 2026 — 🐧 Linux</div>
 <h3>🖥️ C'est quoi ?</h3>
 <p>Une interface en ligne de commande pour dialoguer avec le système.</p>
-<h3>💡 Pourquoi ?</h3>
-<ul>
-<li>Plus rapide</li>
-<li>Automatisable</li>
-<li>Indispensable sur serveurs</li>
-<li>Universel</li>
-</ul>
 <h3>📂 Les bases</h3>
 <pre>pwd              # Où suis-je ?
 ls               # Que contient ce dossier ?
 cd Documents     # Entrer
-cd ..            # Remonter
-clear            # Effacer</pre>
+cd ..            # Remonter</pre>
 <h3>📄 Manipuler</h3>
 <pre>touch test.txt           # Créer
 mkdir mon_dossier        # Dossier
 cp test.txt copie.txt    # Copier
 mv test.txt dossier/     # Déplacer
 rm test.txt              # Supprimer</pre>
-<h3>🔍 Voir</h3>
-<pre>cat fichier.txt          # Tout
-less fichier.txt         # Paginé
-head fichier.txt         # 10 premières
-tail fichier.txt         # 10 dernières</pre>
 <div class="tip">💡 Tab auto-complète.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
@@ -450,13 +412,6 @@ a14:`<h2>Midjourney : créer des images avec l'IA</h2><div class="meta">📅 15 
 <h3>📝 Exemple</h3>
 <pre>/imagine a majestic cyberpunk city at sunset,
 neon lights, rain, cinematic, 4k --ar 16:9</pre>
-<h3>🎯 Paramètres</h3>
-<ul>
-<li>--ar 16:9 — Format</li>
-<li>--v 6 — Version</li>
-<li>--style raw — Photo</li>
-<li>--q 2 — Qualité</li>
-</ul>
 <div class="tip">💡 Midjourney comprend mal le texte. Préférez DALL-E.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
@@ -476,10 +431,6 @@ GET    /api/users/42     → user 42
 POST   /api/users        → créer
 PUT    /api/users/42     → modifier
 DELETE /api/users/42     → supprimer</pre>
-<h3>📦 Réponse JSON</h3>
-<pre>{ "id": 42, "nom": "Dupont" }</pre>
-<h3>🛠️ Tester</h3>
-<pre>curl https://api.exemple.com/users/42</pre>
 <div class="tip">💡 JSONPlaceholder pour s'entraîner.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
@@ -493,14 +444,12 @@ a16:`<h2>La double authentification expliquée</h2><div class="meta">📅 13 sep
 <li>SMS — Simple mais vulnérable</li>
 <li>App — Google Auth, Authy (recommandé)</li>
 <li>Clé physique — YubiKey (le plus sûr)</li>
-<li>Email — Moins pratique</li>
 </ul>
 <h3>✅ Où activer</h3>
 <ol>
 <li>Email principal</li>
 <li>Banque</li>
 <li>Réseaux sociaux</li>
-<li>Gestionnaire de mots de passe</li>
 </ol>
 <div class="tip">💡 Préférez l'app au SMS.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
@@ -518,27 +467,16 @@ a17:`<h2>SSD vs HDD : que choisir ?</h2><div class="meta">📅 12 septembre 2026
 <li>Silence : SSD silencieux</li>
 <li>Prix : HDD moins cher/Go</li>
 </ul>
-<h3>🎯 Recommandation</h3>
-<ul>
-<li>Système + logiciels → SSD</li>
-<li>Sauvegardes → HDD</li>
-<li>Meilleure config → SSD 500 Go + HDD 2 To</li>
-</ul>
 <div class="tip">💡 Meilleur upgrade &lt; 50€ pour un vieux PC.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a18:`<h2>Les meilleures distributions Linux 2026</h2><div class="meta">📅 11 septembre 2026 — 🐧 Linux</div>
 <h3>🐧 Top 5</h3>
-<h3>1️⃣ Ubuntu</h3>
-<p>La plus accessible. Support 5 ans (LTS).</p>
-<h3>2️⃣ Linux Mint</h3>
-<p>Encore plus simple. Interface familière à Windows.</p>
-<h3>3️⃣ Fedora</h3>
-<p>Moderne, à jour, sponsorisée par Red Hat.</p>
-<h3>4️⃣ Pop!_OS</h3>
-<p>Optimisée développeurs et créateurs.</p>
-<h3>5️⃣ Debian</h3>
-<p>Ultra stable. Le roc du libre.</p>
+<p><strong>1️⃣ Ubuntu</strong> — La plus accessible. Support 5 ans (LTS).</p>
+<p><strong>2️⃣ Linux Mint</strong> — Encore plus simple. Interface familière à Windows.</p>
+<p><strong>3️⃣ Fedora</strong> — Moderne, à jour, sponsorisée par Red Hat.</p>
+<p><strong>4️⃣ Pop!_OS</strong> — Optimisée développeurs et créateurs.</p>
+<p><strong>5️⃣ Debian</strong> — Ultra stable. Le roc du libre.</p>
 <h3>🎯 Choix</h3>
 <ul>
 <li>Débutant → Ubuntu / Mint</li>
@@ -559,12 +497,6 @@ a19:`<h2>Comprendre les LLM</h2><div class="meta">📅 10 septembre 2026 — �
 <li>Affinage (chat, code…)</li>
 <li>Inférence à partir d'un prompt</li>
 </ol>
-<h3>⚙️ Paramètres</h3>
-<ul>
-<li>Tokens — 1 mot ≈ 1,3 token</li>
-<li>Température — 0 précis, 1 créatif</li>
-<li>Contexte — Longueur max</li>
-</ul>
 <h3>🎯 Les principaux</h3>
 <ul>
 <li>GPT-5 (OpenAI)</li>
@@ -601,38 +533,48 @@ git pull                    # Récupérer</pre>
 <pre>git branch                  # Lister
 git checkout -b ma-branche  # Créer + basculer
 git merge ma-branche        # Fusionner</pre>
-<h3>📌 Workflow</h3>
-<ol>
-<li>Modifier un fichier</li>
-<li>git add .</li>
-<li>git commit -m "msg"</li>
-<li>git push</li>
-</ol>
 <div class="tip">💡 GitHub Desktop si le terminal fait peur.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`
 };
 
+// === NAVIGATION ONGLETS ===
 function ouvrirPage(page){
-  ['accueil','securite','windows','linux','ia','web'].forEach(p=>{
-    document.getElementById('page-'+p).style.display = (p===page)?'block':'none';
+  // Cache toutes les pages
+  document.querySelectorAll('main > div[id^="page-"]').forEach(p=>{
+    p.style.display = 'none';
   });
+  // Cache la zone article
+  document.getElementById('zone-contenu').style.display = 'none';
+  document.getElementById('zone-contenu').innerHTML = '';
+  // Affiche la page demandée
+  document.getElementById('page-' + page).style.display = 'block';
+  // Met à jour l'onglet actif
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.querySelector('.tab[data-page="'+page+'"]').classList.add('active');
-  document.getElementById('zone-contenu').innerHTML='';
+  if(event && event.target) event.target.classList.add('active');
   window.scrollTo(0,0);
 }
 
+// === OUVRIR UN ARTICLE ===
 function ouvrirArticle(id){
-  document.getElementById('zone-contenu').innerHTML = '<div class="contenu">'+ARTICLES[id]+'</div>';
-  window.scrollTo({top:0,behavior:'smooth'});
+  // Cache toutes les pages
+  document.querySelectorAll('main > div[id^="page-"]').forEach(p=>{
+    p.style.display = 'none';
+  });
+  // Affiche la zone contenu
+  const zone = document.getElementById('zone-contenu');
+  zone.innerHTML = '<div class="contenu">' + ARTICLES[id] + '</div>';
+  zone.style.display = 'block';
+  window.scrollTo(0,0);
 }
 
+// === FERMER L'ARTICLE ===
 function fermerArticle(){
-  document.getElementById('zone-contenu').innerHTML='';
-  window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('zone-contenu').style.display = 'none';
+  document.getElementById('zone-contenu').innerHTML = '';
+  // Réaffiche l'accueil par défaut
+  document.getElementById('page-accueil').style.display = 'block';
+  window.scrollTo(0,0);
 }
-
-ouvrirPage('accueil');
 </script>
 
 </body>
