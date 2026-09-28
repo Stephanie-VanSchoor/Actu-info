@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formation Python — Actu Info</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#f4f6f8;color:#1a1a2e;line-height:1.7}
+
+header{background:#1a1a2e;color:#fff;padding:20px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+header h1{font-size:22px}
+header p{color:#aaa;font-size:13px}
+nav{background:#4f46e5;padding:0 30px;display:flex;flex-wrap:wrap}
+nav a{color:#fff;padding:14px 18px;text-decoration:none;font-weight:600;font-size:14px}
+nav a:hover{background:rgba(255,255,255,.15)}
+nav a.active{background:rgba(0,0,0,.25)}
+
+main{max-width:900px;margin:30px auto;padding:0 20px}
+
+.hero{background:linear-gradient(135deg,#306998,#FFD43B);color:#fff;padding:40px 30px;border-radius:14px;margin-bottom:30px}
+.hero h2{font-size:28px;margin-bottom:10px}
+.hero p{opacity:.95}
+
+h2.section{font-size:20px;margin:30px 0 16px;color:#1a1a2e;padding-bottom:8px;border-bottom:2px solid #4f46e5}
+
+.module{background:#fff;border-radius:12px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.module-header{background:#f8f9fc;padding:18px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-left:4px solid #4f46e5;transition:.15s}
+.module-header:hover{background:#eef0ff}
+.module-header h3{font-size:16px;color:#1a1a2e}
+.module-header .meta{font-size:13px;color:#888;margin-top:4px}
+.module-header .arrow{font-size:18px;color:#4f46e5;transition:transform .3s}
+.module-header .arrow.open{transform:rotate(90deg)}
+
+.lecons{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.lecons.open{max-height:2000px}
+
+.lecon{display:flex;justify-content:space-between;align-items:center;padding:12px 22px;border-top:1px solid #f0f0f5;font-size:14px;transition:.15s}
+.lecon:hover{background:#f8f9fc}
+.lecon a{color:#1a1a2e;text-decoration:none;flex:1}
+.lecon a:hover{color:#4f46e5}
+.lecon .tags{display:flex;gap:6px;align-items:center}
+.tag{font-size:11px;padding:3px 8px;border-radius:10px;font-weight:600}
+.tag-deb{background:#dcfce7;color:#166534}
+.tag-int{background:#fef3c7;color:#92400e}
+.tag-exp{background:#fee2e2;color:#991b1b}
+.tag-free{background:#dbeafe;color:#1e40af}
+.tag-premium{background:#fef3c7;color:#92400e}
+
+.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:30px 0}
+.price-card{background:#fff;border-radius:12px;padding:28px 22px;text-align:center;border:2px solid #e5e7eb;transition:.2s}
+.price-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.price-card.popular{border-color:#4f46e5;background:#f8f9ff}
+.price-card h3{font-size:18px;margin-bottom:10px}
+.price-card .price{font-size:32px;font-weight:800;color:#4f46e5;margin:12px 0}
+.price-card .price span{font-size:14px;color:#888;font-weight:500}
+.price-card ul{list-style:none;text-align:left;margin:18px 0;font-size:14px}
+.price-card ul li{padding:6px 0;color:#4b5563}
+.price-card ul li::before{content:"✅ ";color:#16a34a}
+.price-card .btn{display:inline-block;padding:12px 26px;background:#4f46e5;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;margin-top:12px}
+.price-card .btn:hover{background:#4338ca}
+.price-card .badge{display:inline-block;background:#4f46e5;color:#fff;font-size:11px;padding:3px 10px;border-radius:10px;font-weight:700;margin-bottom:10px}
+
+footer{text-align:center;padding:30px;color:#888;font-size:14px;margin-top:40px;background:#fff;border-top:1px solid #e2e8f0}
+footer a{color:#4f46e5;margin:0 10px;text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div><h1>Actu Info</h1><p>Le blog des nouvelles technologies</p></div>
+</header>
+
+<nav>
+  <a href="index.html">Accueil</a>
+  <a href="securite.html">Sécurité</a>
+  <a href="windows.html">Windows</a>
+  <a href="linux.html">Linux</a>
+  <a href="ia.html">IA</a>
+  <a href="python.html" class="active">Formation Python</a>
+  <a href="contact.html">Contact</a>
+  <a href="newletter.html">Newsletter</a>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <h2>🐍 Formation Python Complète</h2>
+    <p>De débutant à expert — 5 modules, 54 leçons, projets concrets.</p>
+  </div>
+
+  <h2 class="section">📚 Les modules</h2>
+
+  <!-- MODULE 1 -->
+  <div class="module">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div>
+        <h3>📚 Module 1 : Les Fondamentaux <span class="tag tag-free">GRATUIT</span></h3>
+        <div class="meta">🟢 Débutant · 10 leçons · Maîtrisez les bases de Python</div>
+      </div>
+      <span class="arrow open">▶</span>
+    </div>
+    <div class="lecons open">
+      <div class="lecon"><a href="#">1.1 — Introduction à Python</a><div class="tags"><span class="tag tag-deb">🟢 Débutant</span><span class="tag">15 min</span></div></div>
+      <div class="lecon"><a href="#">1.2 — Installation et Configuration</a><div class="tags"><span class="tag tag-deb">🟢 Débutant</span><span class="tag">20 min</span></div></div>
+      <div class="lecon"><a href="#">1.3 — Les Variables et Types</a><div class="tags"><span class="tag tag-deb">🟢 Débutant</span><span class="tag">25 min</span></div></div>
+      <div class="lecon"><a href="#">1.4 — Les Opérateurs</a><div class="tags"><span class="tag tag-deb">🟢 Débutant</span><span class="tag">20 min</span></div></div>
+      <div class="lecon"><a href="#">1.5 — Les Conditions (if/else)</a><div class="tags"><span class="tag tag-deb">🟢 Débutant</span><span class="tag">25 min</span></div></div>
+      <div class="lecon"><a href="#">1.6 — Les Boucles (for/while)</a><div class="tags"><span class="tag tag-deb">🟢 Débutant</span><span class="tag">25 min</span></div></div>
+      <div class="lecon"><a href="#">1.7 — Les Listes</a><div class="tags"><span class="tag tag-deb">🟢 Débutant</span><span class="tag">20 min</span></div></div>
+      <div class="lecon"><a href="#">1.8 — Les Dictionnaires</a><div class="tags"><span class="tag tag-deb">🟢 Débutant</span><span class="tag">20 min</span></div></div>
+      <div class="lecon"><a href="#">1.9 — Les Tuples et Sets</a><div class="tags"><span class="tag tag-deb">🟢 Débutant</span><span class="tag">15 min</span></div></div>
+      <div class="lecon"><a href="#">1.10 — Les Chaînes de Caractères</a><div class="tags"><span class="tag tag-deb">🟢 Débutant</span><span class="tag">20 min</span></div></div>
+    </div>
+  </div>
+
+  <!-- MODULE 2 -->
+  <div class="module">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div>
+        <h3>📚 Module 2 : Programmation Avancée <span class="tag tag-premium">🔒 Premium</span></h3>
+        <div class="meta">🟡 Intermédiaire · 12 leçons · Approfondissez vos connaissances</div>
+      </div>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="lecons">
+      <div class="lecon"><a href="#">2.1 — Les Fonctions</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">30 min</span></div></div>
+      <div class="lecon"><a href="#">2.2 — Les Fonctions Lambda</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">20 min</span></div></div>
+      <div class="lecon"><a href="#">2.3 — La POO - Classes et Objets</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">35 min</span></div></div>
+      <div class="lecon"><a href="#">2.4 — L'Héritage</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">30 min</span></div></div>
+      <div class="lecon"><a href="#">2.5 — Les Méthodes Spéciales</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">25 min</span></div></div>
+      <div class="lecon"><a href="#">2.6 — Les Fichiers</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">25 min</span></div></div>
+      <div class="lecon"><a href="#">2.7 — Les Exceptions</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">20 min</span></div></div>
+      <div class="lecon"><a href="#">2.8 — Les Modules et Packages</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">25 min</span></div></div>
+      <div class="lecon"><a href="#">2.9 — Les Décorateurs</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">25 min</span></div></div>
+      <div class="lecon"><a href="#">2.10 — Les Générateurs</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">20 min</span></div></div>
+      <div class="lecon"><a href="#">2.11 — Les Context Managers</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">20 min</span></div></div>
+      <div class="lecon"><a href="#">2.12 — Les Métaclasses</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">25 min</span></div></div>
+    </div>
+  </div>
+
+  <!-- MODULE 3 -->
+  <div class="module">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div>
+        <h3>📚 Module 3 : Bibliothèques et Frameworks <span class="tag tag-premium">🔒 Premium</span></h3>
+        <div class="meta">🟡 Intermédiaire · 12 leçons · NumPy, Pandas, Flask, Django...</div>
+      </div>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="lecons">
+      <div class="lecon"><a href="#">3.1 — NumPy - Calcul Numérique</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">35 min</span></div></div>
+      <div class="lecon"><a href="#">3.2 — Pandas - Analyse de Données</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">40 min</span></div></div>
+      <div class="lecon"><a href="#">3.3 — Matplotlib - Visualisation</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">35 min</span></div></div>
+      <div class="lecon"><a href="#">3.4 — Requests - Appels API</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">25 min</span></div></div>
+      <div class="lecon"><a href="#">3.5 — BeautifulSoup - Web Scraping</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">30 min</span></div></div>
+      <div class="lecon"><a href="#">3.6 — SQLAlchemy - ORM</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">35 min</span></div></div>
+      <div class="lecon"><a href="#">3.7 — Flask - Web Framework</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">40 min</span></div></div>
+      <div class="lecon"><a href="#">3.8 — Django - Framework Complet</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">45 min</span></div></div>
+      <div class="lecon"><a href="#">3.9 — Pytest - Tests Unitaires</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">30 min</span></div></div>
+      <div class="lecon"><a href="#">3.10 — Selenium - Automatisation</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">30 min</span></div></div>
+      <div class="lecon"><a href="#">3.11 — Scikit-learn - Machine Learning</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">40 min</span></div></div>
+      <div class="lecon"><a href="#">3.12 — TensorFlow - Deep Learning</a><div class="tags"><span class="tag tag-int">🟡 Intermédiaire</span><span class="tag">45 min</span></div></div>
+    </div>
+  </div>
+
+  <!-- MODULE 4 -->
+  <div class="module">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div>
+        <h3>📚 Module 4 : Projets Pratiques <span class="tag tag-premium">🔒 Premium</span></h3>
+        <div class="meta">🔴 Expert · 10 leçons · Projets concrets pour votre portfolio</div>
+      </div>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="lecons">
+      <div class="lecon"><a href="#">4.1 — Projet : Calculatrice</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">30 min</span></div></div>
+      <div class="lecon"><a href="#">4.2 — Projet : Gestionnaire de Contacts</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">45 min</span></div></div>
+      <div class="lecon"><a href="#">4.3 — Projet : Analyseur de Données</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">50 min</span></div></div>
+      <div class="lecon"><a href="#">4.4 — Projet : Application Web Flask</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">60 min</span></div></div>
+      <div class="lecon"><a href="#">4.5 — Projet : Scraper Web</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">40 min</span></div></div>
+      <div class="lecon"><a href="#">4.6 — Projet : API REST</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">45 min</span></div></div>
+      <div class="lecon"><a href="#">4.7 — Projet : Bot Discord</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">35 min</span></div></div>
+      <div class="lecon"><a href="#">4.8 — Projet : Jeu Python</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">40 min</span></div></div>
+      <div class="lecon"><a href="#">4.9 — Projet : Automatisation de Tâches</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">35 min</span></div></div>
+      <div class="lecon"><a href="#">4.10 — Projet : Dashboard de Données</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">50 min</span></div></div>
+    </div>
+  </div>
+
+  <!-- MODULE 5 -->
+  <div class="module">
+    <div class="module-header" onclick="toggleModule(this)">
+      <div>
+        <h3>📚 Module 5 : Spécialisations <span class="tag tag-premium">🔒 Premium</span></h3>
+        <div class="meta">🔴 Expert · 10 leçons · Data Science, IA, Cybersécurité...</div>
+      </div>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="lecons">
+      <div class="lecon"><a href="#">5.1 — Data Science avec Python</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">45 min</span></div></div>
+      <div class="lecon"><a href="#">5.2 — Machine Learning Avancé</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">50 min</span></div></div>
+      <div class="lecon"><a href="#">5.3 — Deep Learning</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">55 min</span></div></div>
+      <div class="lecon"><a href="#">5.4 — Big Data avec Python</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">45 min</span></div></div>
+      <div class="lecon"><a href="#">5.5 — DevOps avec Python</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">40 min</span></div></div>
+      <div class="lecon"><a href="#">5.6 — Cybersécurité Python</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">40 min</span></div></div>
+      <div class="lecon"><a href="#">5.7 — IoT avec Python</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">35 min</span></div></div>
+      <div class="lecon"><a href="#">5.8 — Blockchain Python</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">45 min</span></div></div>
+      <div class="lecon"><a href="#">5.9 — IA avec Python</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">50 min</span></div></div>
+      <div class="lecon"><a href="#">5.10 — Projet Final - Portfolio</a><div class="tags"><span class="tag tag-exp">🔴 Expert</span><span class="tag">60 min</span></div></div>
+    </div>
+  </div>
+
+  <!-- TARIFS -->
+  <h2 class="section">💰 Nos formules</h2>
+
+  <div class="pricing">
+    <div class="price-card">
+      <h3>🆓 Découverte</h3>
+      <div class="price">0<span>€</span></div>
+      <ul>
+        <li>Module 1 complet (10 leçons)</li>
+        <li>Bases de Python</li>
+        <li>Accès à vie</li>
+      </ul>
+      <a href="contact.html" class="btn">Commencer</a>
+    </div>
+
+    <div class="price-card popular">
+      <div class="badge">⭐ POPULAIRE</div>
+      <h3>🚀 Formation Complète</h3>
+      <div class="price">29,90<span>€</span></div>
+      <ul>
+        <li>54 leçons complètes</li>
+        <li>Tous les modules</li>
+        <li>Projets avec corrigés</li>
+        <li>Accès à vie</li>
+      </ul>
+      <a href="contact.html" class="btn">Acheter</a>
+    </div>
+
+    <div class="price-card">
+      <h3>🎯 Coaching</h3>
+      <div class="price">49,90<span>€/mois</span></div>
+      <ul>
+        <li>Tout Premium</li>
+        <li>Sessions 1-1 visio</li>
+        <li>Support prioritaire</li>
+        <li>Sans engagement</li>
+      </ul>
+      <a href="contact.html" class="btn">Réserver</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 Actu Info — <a href="contact.html">Contact</a> — <a href="index.html">Accueil</a>
+</footer>
+
+<script>
+function toggleModule(header) {
+  const lecons = header.nextElementSibling;
+  const arrow = header.querySelector('.arrow');
+  lecons.classList.toggle('open');
+  arrow.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
