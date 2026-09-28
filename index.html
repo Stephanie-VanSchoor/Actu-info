@@ -120,107 +120,89 @@ footer{text-align:center;padding:30px;color:#888;margin-top:40px;background:#fff
 
 <script>
 const ARTICLES = {
-
 a1:`<h2>Phishing : les 7 signes qui ne trompent pas</h2><div class="meta">📅 28 septembre 2026 — 🔒 Sécurité</div>
 <h3>🎣 Qu'est-ce que le phishing ?</h3>
-<p>Le phishing (ou hameçonnage) est une technique de cyberattaque qui consiste à se faire passer pour un organisme de confiance — banque, service public, grande enseigne — afin de vous soutirer des informations sensibles : identifiants, mots de passe, numéro de carte bancaire.</p>
+<p>Le phishing (ou hameçonnage) est une technique qui consiste à se faire passer pour un organisme de confiance afin de vous soutirer des informations sensibles : identifiants, mots de passe, numéro de carte bancaire.</p>
 <p>C'est aujourd'hui la première cause de compromission de comptes dans le monde.</p>
-
 <h3>⚠️ Les 7 signes qui doivent vous alerter</h3>
 <ol>
-<li><strong>L'urgence artificielle</strong> — « Votre compte sera bloqué dans 24h ! ». Les escrocs créent la panique pour vous faire agir vite.</li>
-<li><strong>L'adresse email suspecte</strong> — Vérifiez TOUJOURS l'expéditeur complet. <code>support@banque-secure-fr.com</code> n'est PAS votre banque.</li>
-<li><strong>Les fautes d'orthographe</strong> — Un vrai organisme relit ses emails. Des fautes = alerte rouge.</li>
-<li><strong>Les liens suspects</strong> — Survolez un lien AVANT de cliquer. L'adresse réelle apparaît en bas du navigateur.</li>
-<li><strong>Les demandes d'infos personnelles</strong> — Aucune banque ne demande votre mot de passe par email.</li>
-<li><strong>Les pièces jointes inattendues</strong> — Un .zip, .exe ou .scr d'un inconnu = danger.</li>
-<li><strong>Le ton menaçant</strong> — « Poursuites judiciaires », « Amende » : c'est de l'intimidation.</li>
+<li><strong>L'urgence artificielle</strong> — « Votre compte sera bloqué dans 24h ! ». Les escrocs créent la panique.</li>
+<li><strong>L'adresse email suspecte</strong> — Vérifiez toujours l'expéditeur complet.</li>
+<li><strong>Les fautes d'orthographe</strong> — Un vrai organisme relit ses emails.</li>
+<li><strong>Les liens suspects</strong> — Survolez un lien avant de cliquer.</li>
+<li><strong>Les demandes d'infos personnelles</strong> — Aucune banque ne demande votre mot de passe.</li>
+<li><strong>Les pièces jointes inattendues</strong> — .zip, .exe ou .scr = danger.</li>
+<li><strong>Le ton menaçant</strong> — « Poursuites judiciaires », « Amende ».</li>
 </ol>
-
 <h3>✅ Que faire ?</h3>
 <ul>
-<li>Ne cliquez sur <strong>AUCUN lien</strong></li>
+<li>Ne cliquez sur AUCUN lien</li>
 <li>Ne répondez pas</li>
 <li>Signalez-le comme spam</li>
-<li>Contactez l'organisme par téléphone (numéro officiel)</li>
+<li>Contactez l'organisme par téléphone</li>
 <li>Changez vos mots de passe si vous avez cliqué</li>
 </ul>
-
-<div class="tip">💡 <strong>Astuce :</strong> Activez la double authentification (2FA) partout.</div>
+<div class="tip">💡 <strong>Astuce :</strong> Activez la double authentification partout.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a2:`<h2>Réparer un PC lent en 30 minutes</h2><div class="meta">📅 27 septembre 2026 — 🪟 Windows</div>
 <h3>🐌 Pourquoi mon PC est lent ?</h3>
 <p>Avec le temps, un ordinateur ralentit. Dans 90% des cas, on peut le réparer sans rien acheter.</p>
-
 <h3>⏱️ Étape 1 : Nettoyer le démarrage (5 min)</h3>
 <ol>
-<li>Appuyez sur <code>Ctrl + Maj + Échap</code> → Gestionnaire des tâches</li>
-<li>Onglet <strong>Démarrage</strong></li>
+<li>Appuyez sur Ctrl + Maj + Échap → Gestionnaire des tâches</li>
+<li>Onglet Démarrage</li>
 <li>Désactivez tout ce qui n'est pas indispensable</li>
 </ol>
-
 <h3>⏱️ Étape 2 : Désinstaller les programmes inutiles (5 min)</h3>
-<p>Panneau de configuration → Programmes et fonctionnalités → désinstallez tout ce que vous n'utilisez plus.</p>
-
+<p>Panneau de configuration → Programmes et fonctionnalités.</p>
 <h3>⏱️ Étape 3 : Nettoyer les fichiers temporaires (5 min)</h3>
 <ol>
-<li><code>Windows + R</code> → tapez <code>%temp%</code> → Entrée</li>
-<li><code>Ctrl + A</code> → Supprimer</li>
+<li>Windows + R → tapez %temp% → Entrée</li>
+<li>Ctrl + A → Supprimer</li>
 </ol>
-
 <h3>⏱️ Étape 4 : Mises à jour (5 min)</h3>
-<p>Windows Update installe des correctifs qui améliorent les performances.</p>
-
+<p>Windows Update installe des correctifs d'optimisation.</p>
 <h3>⏱️ Étape 5 : Analyser les virus (10 min)</h3>
 <p>Windows Defender ou Malwarebytes.</p>
-
 <h3>💡 Bonus : SSD</h3>
-<p>Un SSD (moins de 50€) divise le temps de démarrage par 5 sur un vieux PC.</p>
-
+<p>Un SSD (moins de 50€) divise le temps de démarrage par 5.</p>
 <div class="tip">💡 <strong>Astuce :</strong> Redémarrez votre PC une fois par semaine.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a3:`<h2>Les 15 commandes Linux à connaître</h2><div class="meta">📅 26 septembre 2026 — 🐧 Linux</div>
 <h3>🐧 Le terminal, votre meilleur ami</h3>
 <p>Sous Linux, le terminal permet de tout faire, plus vite qu'avec une interface graphique.</p>
-
 <h3>📂 Navigation</h3>
-<pre>pwd              # Affiche le dossier courant
-ls -la           # Liste tous les fichiers
-cd /chemin       # Change de dossier
-cd ..            # Remonte d'un niveau</pre>
-
+<pre>pwd              # Dossier courant
+ls -la           # Tous les fichiers
+cd /chemin       # Changer de dossier
+cd ..            # Remonter</pre>
 <h3>📄 Fichiers</h3>
 <pre>cp source dest   # Copier
 mv source dest   # Déplacer / renommer
 rm fichier       # Supprimer
 mkdir dossier    # Créer un dossier
 touch fichier    # Créer un fichier vide</pre>
-
 <h3>🔍 Recherche</h3>
-<pre>grep "texte" fichier     # Cherche un texte
-find / -name "*.txt"     # Cherche les .txt
-locate fichier           # Recherche rapide</pre>
-
+<pre>grep "texte" fichier
+find / -name "*.txt"
+locate fichier</pre>
 <h3>⚙️ Système</h3>
 <pre>sudo commande    # Administrateur
 apt install X    # Installer
-top              # Processus actifs
+top              # Processus
 df -h            # Espace disque
 free -h          # Mémoire libre</pre>
-
 <h3>💾 Sauvegarde</h3>
-<pre>tar -czvf archive.tar.gz dossier/   # Compresser
-tar -xzvf archive.tar.gz            # Décompresser</pre>
-
-<div class="tip">💡 <strong>Astuce :</strong> <code>man commande</code> affiche le manuel.</div>
+<pre>tar -czvf archive.tar.gz dossier/
+tar -xzvf archive.tar.gz</pre>
+<div class="tip">💡 <strong>Astuce :</strong> man commande affiche le manuel.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a4:`<h2>ChatGPT : 15 prompts pour gagner du temps</h2><div class="meta">📅 25 septembre 2026 — 🤖 IA</div>
 <h3>🤖 Pourquoi bien prompter ?</h3>
 <p>La qualité de la réponse dépend de la qualité de la question.</p>
-
 <h3>💼 Productivité</h3>
 <ol>
 <li>« Résume ce texte en 5 points clés »</li>
@@ -229,7 +211,6 @@ a4:`<h2>ChatGPT : 15 prompts pour gagner du temps</h2><div class="meta">📅 25 
 <li>« Crée un planning pour [objectif] »</li>
 <li>« Génère 10 titres accrocheurs »</li>
 </ol>
-
 <h3>📚 Apprentissage</h3>
 <ol start="6">
 <li>« Explique [concept] comme à un enfant de 12 ans »</li>
@@ -238,7 +219,6 @@ a4:`<h2>ChatGPT : 15 prompts pour gagner du temps</h2><div class="meta">📅 25 
 <li>« Quiz de 10 questions sur [sujet] »</li>
 <li>« Compare [A] et [B] dans un tableau »</li>
 </ol>
-
 <h3>💻 Code</h3>
 <ol start="11">
 <li>« Fonction Python qui [description] »</li>
@@ -247,22 +227,19 @@ a4:`<h2>ChatGPT : 15 prompts pour gagner du temps</h2><div class="meta">📅 25 
 <li>« Optimise ce code »</li>
 <li>« Écris des tests unitaires »</li>
 </ol>
-
-<div class="tip">💡 <strong>Astuce :</strong> Plus vous donnez de contexte, meilleure est la réponse.</div>
+<div class="tip">💡 <strong>Astuce :</strong> Donnez du contexte pour une meilleure réponse.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a5:`<h2>VPN : comment ça marche vraiment ?</h2><div class="meta">📅 24 septembre 2026 — 🔒 Sécurité</div>
 <h3>🔐 Qu'est-ce qu'un VPN ?</h3>
-<p>Un VPN crée un tunnel chiffré entre votre appareil et Internet. Vos données sont chiffrées et votre IP masquée.</p>
-
+<p>Un VPN crée un tunnel chiffré entre votre appareil et Internet.</p>
 <h3>🎯 À quoi ça sert ?</h3>
 <ul>
-<li><strong>Protection Wi-Fi public</strong></li>
-<li><strong>Contourner la censure</strong></li>
-<li><strong>Anonymat</strong></li>
-<li><strong>Contourner le geo-blocking</strong></li>
+<li>Protection sur Wi-Fi public</li>
+<li>Contourner la censure</li>
+<li>Anonymat</li>
+<li>Contourner le geo-blocking</li>
 </ul>
-
 <h3>⚙️ Comment ça marche ?</h3>
 <ol>
 <li>Vous vous connectez à un serveur VPN</li>
@@ -270,30 +247,25 @@ a5:`<h2>VPN : comment ça marche vraiment ?</h2><div class="meta">📅 24 septem
 <li>Les sites voient l'IP du serveur</li>
 <li>Vos données sont chiffrées (AES-256)</li>
 </ol>
-
 <h3>⚠️ Attention aux VPN gratuits</h3>
 <p>Un VPN gratuit revend souvent vos données. Privilégiez ProtonVPN, Mullvad, ExpressVPN.</p>
-
-<div class="tip">💡 <strong>Un VPN ne rend PAS anonyme.</strong></div>
+<div class="tip">💡 Un VPN ne rend PAS anonyme.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a6:`<h2>Créer un mot de passe vraiment solide</h2><div class="meta">📅 23 septembre 2026 — 🔒 Sécurité</div>
 <h3>🔑 Les règles de base</h3>
 <ul>
-<li><strong>12 caractères minimum</strong> (16+ idéalement)</li>
-<li><strong>Mélangez</strong> majuscules, minuscules, chiffres, symboles</li>
-<li><strong>Jamais</strong> d'infos personnelles</li>
-<li><strong>Jamais</strong> le même sur deux sites</li>
+<li>12 caractères minimum (16+ idéalement)</li>
+<li>Mélangez majuscules, minuscules, chiffres, symboles</li>
+<li>Jamais d'infos personnelles</li>
+<li>Jamais le même sur deux sites</li>
 </ul>
-
 <h3>✅ La méthode de la phrase</h3>
 <pre>« J'ai mangé 3 pizzas au resto en 2024 ! »
 → Jm3par2024!</pre>
-
 <h3>🛠️ Gestionnaire de mots de passe</h3>
-<p>Bitwarden (gratuit), 1Password, Dashlane : ils génèrent et stockent un mot de passe unique par site.</p>
-
-<div class="tip">💡 <strong>Vérifiez vos fuites :</strong> haveibeenpwned.com</div>
+<p>Bitwarden (gratuit), 1Password, Dashlane.</p>
+<div class="tip">💡 Vérifiez vos fuites sur haveibeenpwned.com</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a7:`<h2>Les raccourcis clavier indispensables</h2><div class="meta">📅 22 septembre 2026 — 🪟 Windows</div>
@@ -306,31 +278,26 @@ Alt + Tab          # Changer de fenêtre
 Ctrl + Shift + Esc # Gestionnaire
 Windows + Shift + S # Capture
 Windows + V        # Historique presse-papiers</pre>
-
 <h3>🌐 Navigateurs</h3>
 <pre>Ctrl + T           # Nouvel onglet
 Ctrl + W           # Fermer
 Ctrl + Shift + T   # Rouvrir onglet fermé
 Ctrl + Maj + Suppr # Vider cache
 F12                # DevTools</pre>
-
-<div class="tip">💡 <strong>Astuce :</strong> Apprenez 5 raccourcis par semaine.</div>
+<div class="tip">💡 Apprenez 5 raccourcis par semaine.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a8:`<h2>Installer Ubuntu facilement</h2><div class="meta">📅 21 septembre 2026 — 🐧 Linux</div>
 <h3>📥 Étape 1 : Télécharger</h3>
-<p>Va sur <strong>ubuntu.com</strong> → version LTS 24.04.</p>
-
+<p>Va sur ubuntu.com → version LTS 24.04.</p>
 <h3>💾 Étape 2 : Clé USB bootable</h3>
 <ol>
-<li>Télécharge <strong>Rufus</strong> ou <strong>Etcher</strong></li>
+<li>Télécharge Rufus ou Etcher</li>
 <li>Clé USB 8 Go minimum</li>
 <li>Sélectionne l'ISO et la clé</li>
 </ol>
-
 <h3>⚙️ Étape 3 : Démarrer sur USB</h3>
 <p>Redémarre → F2/F12/Suppr → USB en premier.</p>
-
 <h3>🚀 Étape 4 : Installer</h3>
 <ol>
 <li>« Installer Ubuntu »</li>
@@ -339,39 +306,33 @@ a8:`<h2>Installer Ubuntu facilement</h2><div class="meta">📅 21 septembre 2026
 <li>Nom + mot de passe</li>
 <li>15 minutes d'attente</li>
 </ol>
-
 <h3>✅ Étape 5 : Mises à jour</h3>
 <pre>sudo apt update
 sudo apt upgrade</pre>
-
-<div class="tip">💡 <strong>Astuce :</strong> Teste en live USB avant.</div>
+<div class="tip">💡 Teste en live USB avant.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a9:`<h2>Comprendre le Machine Learning</h2><div class="meta">📅 20 septembre 2026 — 🤖 IA</div>
 <h3>🧠 Qu'est-ce que le ML ?</h3>
-<p>Le Machine Learning permet à un programme d'apprendre à partir de données, sans être explicitement programmé.</p>
-
+<p>Le Machine Learning permet à un programme d'apprendre à partir de données.</p>
 <h3>🎯 Les 3 types</h3>
 <ul>
-<li><strong>Supervisé</strong> — Exemples étiquetés (spam/non-spam)</li>
-<li><strong>Non supervisé</strong> — L'algo trouve des groupes</li>
-<li><strong>Par renforcement</strong> — Apprend par essai/erreur</li>
+<li>Supervisé — Exemples étiquetés</li>
+<li>Non supervisé — L'algo trouve des groupes</li>
+<li>Par renforcement — Essai/erreur</li>
 </ul>
-
 <h3>💡 Exemples concrets</h3>
 <ul>
-<li>Recommandations Netflix / YouTube</li>
+<li>Recommandations Netflix</li>
 <li>Filtres anti-spam</li>
 <li>Reconnaissance faciale</li>
 <li>Voitures autonomes</li>
 </ul>
-
 <h3>🛠️ Débuter</h3>
 <pre>from sklearn.linear_model import LinearRegression
 model = LinearRegression()
 model.fit(X_train, y_train)</pre>
-
-<div class="tip">💡 <strong>Astuce :</strong> Entraînez-vous sur Kaggle.com</div>
+<div class="tip">💡 Entraînez-vous sur Kaggle.com</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a10:`<h2>Les bases du HTML et CSS</h2><div class="meta">📅 19 septembre 2026 — 🌐 Web</div>
@@ -384,28 +345,23 @@ a10:`<h2>Les bases du HTML et CSS</h2><div class="meta">📅 19 septembre 2026 �
   &lt;p&gt;Mon paragraphe&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-
 <h3>🎨 CSS : style</h3>
 <pre>h1 { color: #4f46e5; font-size: 32px; }
 p  { color: #666; line-height: 1.6; }</pre>
-
 <h3>📂 Relier les deux</h3>
 <pre>&lt;link rel="stylesheet" href="style.css"&gt;</pre>
-
 <h3>🎯 Bases</h3>
 <ul>
 <li>Balises : h1, p, div, a, img</li>
 <li>Attributs : class, id, href, src</li>
 <li>Sélecteurs : balise, .classe, #id</li>
 </ul>
-
-<div class="tip">💡 <strong>Astuce :</strong> F12 pour voir le HTML/CSS d'un site.</div>
+<div class="tip">💡 F12 pour voir le HTML/CSS d'un site.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a11:`<h2>Ransomware : comment s'en protéger</h2><div class="meta">📅 18 septembre 2026 — 🔒 Sécurité</div>
 <h3>💀 Qu'est-ce qu'un ransomware ?</h3>
 <p>Un logiciel malveillant qui chiffre vos fichiers et exige une rançon.</p>
-
 <h3>🎯 Comment ça arrive ?</h3>
 <ul>
 <li>Pièces jointes infectées</li>
@@ -413,16 +369,14 @@ a11:`<h2>Ransomware : comment s'en protéger</h2><div class="meta">📅 18 septe
 <li>Failles non corrigées</li>
 <li>Clés USB</li>
 </ul>
-
 <h3>🛡️ Protection</h3>
 <ol>
-<li><strong>Sauvegardez</strong> — règle 3-2-1</li>
-<li><strong>Mettez à jour</strong></li>
-<li><strong>N'ouvrez pas</strong> les pièces jointes suspectes</li>
-<li><strong>Antivirus</strong> à jour</li>
-<li><strong>Désactivez les macros</strong></li>
+<li>Sauvegardez — règle 3-2-1</li>
+<li>Mettez à jour</li>
+<li>N'ouvrez pas les pièces jointes suspectes</li>
+<li>Antivirus à jour</li>
+<li>Désactivez les macros</li>
 </ol>
-
 <h3>⚠️ Si victime</h3>
 <ul>
 <li>Débranchez Internet</li>
@@ -430,41 +384,32 @@ a11:`<h2>Ransomware : comment s'en protéger</h2><div class="meta">📅 18 septe
 <li>Ne payez JAMAIS</li>
 <li>Signalez sur cybermalveillance.gouv.fr</li>
 </ul>
-
-<div class="tip">💡 <strong>Une sauvegarde hors ligne = seule vraie protection.</strong></div>
+<div class="tip">💡 Une sauvegarde hors ligne = seule vraie protection.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a12:`<h2>Nettoyer Windows sans logiciel</h2><div class="meta">📅 17 septembre 2026 — 🪟 Windows</div>
 <h3>🧹 Pourquoi nettoyer ?</h3>
 <p>Windows accumule des fichiers temporaires, caches, logs.</p>
-
 <h3>1️⃣ Nettoyage intégré</h3>
-<p>Tape <code>cleanmgr</code> → coche tout → OK.</p>
-
+<p>Tape cleanmgr → coche tout → OK.</p>
 <h3>2️⃣ Fichiers temporaires</h3>
 <pre>Windows + R → %temp% → Ctrl+A → Suppr
 Windows + R → temp → Ctrl+A → Suppr
 Windows + R → prefetch → Ctrl+A → Suppr</pre>
-
 <h3>3️⃣ Vider la corbeille</h3>
 <p>Clic droit → Vider.</p>
-
 <h3>4️⃣ Désinstaller</h3>
 <p>Paramètres → Applications.</p>
-
 <h3>5️⃣ Démarrage</h3>
 <p>Ctrl + Shift + Échap → Démarrage.</p>
-
 <h3>6️⃣ Mises à jour</h3>
 <p>Windows Update.</p>
-
-<div class="tip">💡 <strong>Astuce :</strong> Une fois par mois.</div>
+<div class="tip">💡 Une fois par mois.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a13:`<h2>Comprendre le terminal Linux</h2><div class="meta">📅 16 septembre 2026 — 🐧 Linux</div>
 <h3>🖥️ C'est quoi ?</h3>
 <p>Une interface en ligne de commande pour dialoguer avec le système.</p>
-
 <h3>💡 Pourquoi ?</h3>
 <ul>
 <li>Plus rapide</li>
@@ -472,100 +417,84 @@ a13:`<h2>Comprendre le terminal Linux</h2><div class="meta">📅 16 septembre 20
 <li>Indispensable sur serveurs</li>
 <li>Universel</li>
 </ul>
-
 <h3>📂 Les bases</h3>
 <pre>pwd              # Où suis-je ?
 ls               # Que contient ce dossier ?
 cd Documents     # Entrer
 cd ..            # Remonter
 clear            # Effacer</pre>
-
 <h3>📄 Manipuler</h3>
 <pre>touch test.txt           # Créer
 mkdir mon_dossier        # Dossier
 cp test.txt copie.txt    # Copier
 mv test.txt dossier/     # Déplacer
 rm test.txt              # Supprimer</pre>
-
 <h3>🔍 Voir</h3>
 <pre>cat fichier.txt          # Tout
 less fichier.txt         # Paginé
 head fichier.txt         # 10 premières
 tail fichier.txt         # 10 dernières</pre>
-
-<div class="tip">💡 <strong>Tab</strong> auto-complète.</div>
+<div class="tip">💡 Tab auto-complète.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a14:`<h2>Midjourney : créer des images avec l'IA</h2><div class="meta">📅 15 septembre 2026 — 🤖 IA</div>
 <h3>🎨 L'IA qui crée des images</h3>
 <p>Midjourney génère des images à partir de descriptions textuelles.</p>
-
 <h3>🚀 Débuter</h3>
 <ol>
 <li>Compte Discord</li>
 <li>Rejoindre le serveur Midjourney</li>
 <li>Abonnement (10$/mois)</li>
-<li><code>/imagine</code> dans un canal</li>
+<li>/imagine dans un canal</li>
 </ol>
-
 <h3>📝 Exemple</h3>
 <pre>/imagine a majestic cyberpunk city at sunset,
 neon lights, rain, cinematic, 4k --ar 16:9</pre>
-
 <h3>🎯 Paramètres</h3>
 <ul>
-<li><code>--ar 16:9</code> — Format</li>
-<li><code>--v 6</code> — Version</li>
-<li><code>--style raw</code> — Photo</li>
-<li><code>--q 2</code> — Qualité</li>
+<li>--ar 16:9 — Format</li>
+<li>--v 6 — Version</li>
+<li>--style raw — Photo</li>
+<li>--q 2 — Qualité</li>
 </ul>
-
 <div class="tip">💡 Midjourney comprend mal le texte. Préférez DALL-E.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a15:`<h2>Comprendre les API REST</h2><div class="meta">📅 14 septembre 2026 — 🌐 Web</div>
 <h3>🔌 Qu'est-ce que c'est ?</h3>
 <p>Une interface qui permet à deux programmes de communiquer via HTTP.</p>
-
 <h3>🎯 Les 4 méthodes</h3>
 <ul>
-<li><strong>GET</strong> — Lire</li>
-<li><strong>POST</strong> — Créer</li>
-<li><strong>PUT</strong> — Modifier</li>
-<li><strong>DELETE</strong> — Supprimer</li>
+<li>GET — Lire</li>
+<li>POST — Créer</li>
+<li>PUT — Modifier</li>
+<li>DELETE — Supprimer</li>
 </ul>
-
 <h3>📋 Exemple</h3>
 <pre>GET    /api/users        → liste
 GET    /api/users/42     → user 42
 POST   /api/users        → créer
 PUT    /api/users/42     → modifier
 DELETE /api/users/42     → supprimer</pre>
-
 <h3>📦 Réponse JSON</h3>
 <pre>{ "id": 42, "nom": "Dupont" }</pre>
-
 <h3>🛠️ Tester</h3>
 <pre>curl https://api.exemple.com/users/42</pre>
-
-<div class="tip">💡 <strong>Astuce :</strong> JSONPlaceholder pour s'entraîner.</div>
+<div class="tip">💡 JSONPlaceholder pour s'entraîner.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a16:`<h2>La double authentification expliquée</h2><div class="meta">📅 13 septembre 2026 — 🔒 Sécurité</div>
 <h3>🔐 Qu'est-ce que la 2FA ?</h3>
 <p>Ajoute une deuxième vérification après le mot de passe.</p>
-
 <h3>🎯 Pourquoi ?</h3>
 <p>Si votre mot de passe fuite, l'attaquant est bloqué sans le 2e facteur.</p>
-
 <h3>📱 Types</h3>
 <ul>
-<li><strong>SMS</strong> — Simple mais vulnérable</li>
-<li><strong>App</strong> — Google Auth, Authy (recommandé)</li>
-<li><strong>Clé physique</strong> — YubiKey (le plus sûr)</li>
-<li><strong>Email</strong> — Moins pratique</li>
+<li>SMS — Simple mais vulnérable</li>
+<li>App — Google Auth, Authy (recommandé)</li>
+<li>Clé physique — YubiKey (le plus sûr)</li>
+<li>Email — Moins pratique</li>
 </ul>
-
 <h3>✅ Où activer</h3>
 <ol>
 <li>Email principal</li>
@@ -573,53 +502,43 @@ a16:`<h2>La double authentification expliquée</h2><div class="meta">📅 13 sep
 <li>Réseaux sociaux</li>
 <li>Gestionnaire de mots de passe</li>
 </ol>
-
 <div class="tip">💡 Préférez l'app au SMS.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a17:`<h2>SSD vs HDD : que choisir ?</h2><div class="meta">📅 12 septembre 2026 — 🪟 Windows</div>
 <h3>💾 Les 2 technologies</h3>
 <ul>
-<li><strong>HDD</strong> — Plateaux magnétiques, mécanique</li>
-<li><strong>SSD</strong> — Puce mémoire, électronique</li>
+<li>HDD — Plateaux magnétiques, mécanique</li>
+<li>SSD — Puce mémoire, électronique</li>
 </ul>
-
 <h3>⚖️ Comparatif</h3>
 <ul>
-<li><strong>Vitesse</strong> : SSD 10-50× plus rapide</li>
-<li><strong>Durabilité</strong> : SSD mieux aux chocs</li>
-<li><strong>Silence</strong> : SSD silencieux</li>
-<li><strong>Prix</strong> : HDD moins cher/Go</li>
+<li>Vitesse : SSD 10-50× plus rapide</li>
+<li>Durabilité : SSD mieux aux chocs</li>
+<li>Silence : SSD silencieux</li>
+<li>Prix : HDD moins cher/Go</li>
 </ul>
-
 <h3>🎯 Recommandation</h3>
 <ul>
 <li>Système + logiciels → SSD</li>
 <li>Sauvegardes → HDD</li>
 <li>Meilleure config → SSD 500 Go + HDD 2 To</li>
 </ul>
-
 <div class="tip">💡 Meilleur upgrade &lt; 50€ pour un vieux PC.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a18:`<h2>Les meilleures distributions Linux 2026</h2><div class="meta">📅 11 septembre 2026 — 🐧 Linux</div>
 <h3>🐧 Top 5</h3>
-
 <h3>1️⃣ Ubuntu</h3>
 <p>La plus accessible. Support 5 ans (LTS).</p>
-
 <h3>2️⃣ Linux Mint</h3>
 <p>Encore plus simple. Interface familière à Windows.</p>
-
 <h3>3️⃣ Fedora</h3>
 <p>Moderne, à jour, sponsorisée par Red Hat.</p>
-
 <h3>4️⃣ Pop!_OS</h3>
 <p>Optimisée développeurs et créateurs.</p>
-
 <h3>5️⃣ Debian</h3>
 <p>Ultra stable. Le roc du libre.</p>
-
 <h3>🎯 Choix</h3>
 <ul>
 <li>Débutant → Ubuntu / Mint</li>
@@ -627,14 +546,12 @@ a18:`<h2>Les meilleures distributions Linux 2026</h2><div class="meta">📅 11 s
 <li>Serveur → Debian / Ubuntu Server</li>
 <li>Vieux PC → Lubuntu / Xubuntu</li>
 </ul>
-
 <div class="tip">💡 Testez en live USB avant.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a19:`<h2>Comprendre les LLM</h2><div class="meta">📅 10 septembre 2026 — 🤖 IA</div>
 <h3>🤖 Qu'est-ce qu'un LLM ?</h3>
 <p>Un Large Language Model est un modèle d'IA entraîné sur d'énormes quantités de texte.</p>
-
 <h3>🎯 Comment ça marche ?</h3>
 <ol>
 <li>Entraînement sur des milliards de textes</li>
@@ -642,33 +559,29 @@ a19:`<h2>Comprendre les LLM</h2><div class="meta">📅 10 septembre 2026 — �
 <li>Affinage (chat, code…)</li>
 <li>Inférence à partir d'un prompt</li>
 </ol>
-
 <h3>⚙️ Paramètres</h3>
 <ul>
-<li><strong>Tokens</strong> — 1 mot ≈ 1,3 token</li>
-<li><strong>Température</strong> — 0 précis, 1 créatif</li>
-<li><strong>Contexte</strong> — Longueur max</li>
+<li>Tokens — 1 mot ≈ 1,3 token</li>
+<li>Température — 0 précis, 1 créatif</li>
+<li>Contexte — Longueur max</li>
 </ul>
-
 <h3>🎯 Les principaux</h3>
 <ul>
-<li><strong>GPT-5</strong> (OpenAI)</li>
-<li><strong>Claude</strong> (Anthropic)</li>
-<li><strong>Gemini</strong> (Google)</li>
-<li><strong>LLaMA</strong> (Meta)</li>
-<li><strong>Mistral</strong> (France)</li>
+<li>GPT-5 (OpenAI)</li>
+<li>Claude (Anthropic)</li>
+<li>Gemini (Google)</li>
+<li>LLaMA (Meta)</li>
+<li>Mistral (France)</li>
 </ul>
-
 <div class="tip">💡 Comparez plusieurs LLM sur la même question.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`,
 
 a20:`<h2>Git et GitHub : le guide essentiel</h2><div class="meta">📅 9 septembre 2026 — 🌐 Web</div>
 <h3>📚 Git vs GitHub</h3>
 <ul>
-<li><strong>Git</strong> — Logiciel de versioning local</li>
-<li><strong>GitHub</strong> — Site qui héberge les dépôts Git</li>
+<li>Git — Logiciel de versioning local</li>
+<li>GitHub — Site qui héberge les dépôts Git</li>
 </ul>
-
 <h3>🎯 Pourquoi Git ?</h3>
 <ul>
 <li>Historique complet</li>
@@ -676,7 +589,6 @@ a20:`<h2>Git et GitHub : le guide essentiel</h2><div class="meta">📅 9 septemb
 <li>Travail à plusieurs</li>
 <li>Standard pro</li>
 </ul>
-
 <h3>🛠️ Commandes</h3>
 <pre>git init                    # Dépôt local
 git clone URL               # Cloner
@@ -685,23 +597,19 @@ git add .                   # Ajouter tout
 git commit -m "message"     # Enregistrer
 git push                    # Envoyer
 git pull                    # Récupérer</pre>
-
 <h3>🌿 Branches</h3>
 <pre>git branch                  # Lister
 git checkout -b ma-branche  # Créer + basculer
 git merge ma-branche        # Fusionner</pre>
-
 <h3>📌 Workflow</h3>
 <ol>
 <li>Modifier un fichier</li>
-<li><code>git add .</code></li>
-<li><code>git commit -m "msg"</code></li>
-<li><code>git push</code></li>
+<li>git add .</li>
+<li>git commit -m "msg"</li>
+<li>git push</li>
 </ol>
-
 <div class="tip">💡 GitHub Desktop si le terminal fait peur.</div>
 <button class="retour" onclick="fermerArticle()">← Retour</button>`
-
 };
 
 function ouvrirPage(page){
