@@ -21,18 +21,15 @@ main{max-width:900px;margin:30px auto;padding:0 20px}
 .hero h2{font-size:28px;margin-bottom:10px}
 .hero p{opacity:.9}
 h2.section{font-size:20px;margin:24px 0 16px;padding-bottom:8px;border-bottom:2px solid #4f46e5}
-.card{background:#fff;padding:24px;border-radius:12px;margin-bottom:14px;border-left:4px solid #4f46e5;transition:.15s;position:relative}
+.card{background:#fff;padding:20px 24px;border-radius:12px;margin-bottom:12px;border-left:4px solid #4f46e5;transition:.15s}
 .card:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);transform:translateY(-2px)}
-.card a{color:#1a1a2e;font-size:19px;font-weight:700;text-decoration:none}
+.card a{color:#1a1a2e;font-size:17px;font-weight:700;text-decoration:none}
 .card a:hover{color:#4f46e5}
 .card .meta{color:#999;font-size:13px;margin-top:6px}
-.card .btn-del{position:absolute;top:12px;right:12px;background:#fee2e2;color:#991b1b;border:none;border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer;font-weight:600}
-.card .btn-del:hover{background:#fecaca}
-.add-article{background:#fff;padding:24px;border-radius:12px;margin:20px 0;border:2px dashed #4f46e5}
-.add-article h3{color:#4f46e5;margin-bottom:12px;font-size:16px}
-.add-article input,.add-article textarea{width:100%;padding:10px;border:1px solid #e2e8f0;border-radius:8px;font-family:inherit;font-size:14px;margin-bottom:10px}
-.add-article button{background:#4f46e5;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-weight:600;cursor:pointer}
-.add-article button:hover{background:#4338ca}
+.pagination{display:flex;justify-content:center;gap:6px;margin:24px 0;flex-wrap:wrap}
+.pagination button{background:#fff;border:1px solid #e2e8f0;color:#1a1a2e;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:600;font-size:14px}
+.pagination button:hover{background:#f8fafc;border-color:#4f46e5}
+.pagination button.active{background:#4f46e5;color:#fff;border-color:#4f46e5}
 .module{background:#fff;border-radius:12px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05)}
 .module-header{background:#f8f9fc;padding:18px 22px;cursor:pointer;border-left:4px solid #4f46e5}
 .module-header h3{font-size:16px}
@@ -69,12 +66,22 @@ h2.section{font-size:20px;margin:24px 0 16px;padding-bottom:8px;border-bottom:2p
 .lesson h3{color:#1a1a2e;font-size:18px;margin:22px 0 10px}
 .lesson p{margin:10px 0}
 .lesson ul,.lesson ol{margin:10px 0 10px 24px}
-.lesson li{margin:5px 0}
 .lesson pre{background:#1a1a2e;color:#e2e8f0;padding:18px;border-radius:10px;overflow-x:auto;margin:14px 0;font-family:'Consolas','Monaco',monospace;font-size:14px;line-height:1.6}
 .lesson pre code{color:#7dd3fc}
 .lesson .tip{background:#fef3c7;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:8px;margin:14px 0}
 .lesson .back-btn{display:inline-block;background:#4f46e5;color:#fff;padding:10px 20px;border-radius:8px;font-weight:600;margin-top:20px;cursor:pointer;border:none;font-size:14px}
 .lesson .back-btn:hover{background:#4338ca}
+.contact-form{background:#fff;padding:30px;border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.contact-form h3{color:#1a1a2e;font-size:20px;margin-bottom:20px}
+.contact-form label{display:block;font-weight:600;font-size:14px;margin-bottom:6px;color:#1a1a2e}
+.contact-form input,
+.contact-form textarea{width:100%;padding:12px 16px;border:1px solid #e2e8f0;border-radius:8px;font-family:inherit;font-size:15px;margin-bottom:16px;background:#f8fafc;transition:.15s}
+.contact-form input:focus,
+.contact-form textarea:focus{outline:none;border-color:#4f46e5;background:#fff;box-shadow:0 0 0 3px rgba(79,70,229,.1)}
+.contact-form textarea{min-height:140px;resize:vertical}
+.contact-form button{background:#4f46e5;color:#fff;border:none;padding:14px 32px;border-radius:8px;font-size:16px;font-weight:600;cursor:pointer}
+.contact-form button:hover{background:#4338ca}
+.contact-info{background:#f8fafc;padding:20px;border-radius:12px;margin-top:20px;font-size:14px;color:#4b5563}
 footer{text-align:center;padding:30px;color:#888;font-size:14px;margin-top:40px;background:#fff;border-top:1px solid #e2e8f0}
 footer a{color:#4f46e5;margin:0 10px;text-decoration:none;cursor:pointer}
 </style>
@@ -99,80 +106,43 @@ footer a{color:#4f46e5;margin:0 10px;text-decoration:none;cursor:pointer}
 
 <main>
 
-<!-- ACCUEIL -->
 <div id="accueil" class="page active">
   <div class="hero"><h2>Bienvenue sur Actu Info</h2><p>Guides pratiques et conseils pour mieux maîtriser l'informatique.</p></div>
-  <h2 class="section">Derniers articles</h2>
+  <h2 class="section">📰 Derniers articles</h2>
   <div id="articles-accueil"></div>
-  <div class="add-article">
-    <h3>➕ Ajouter un article</h3>
-    <input type="text" id="title-accueil" placeholder="Titre de l'article">
-    <input type="text" id="desc-accueil" placeholder="Description courte">
-    <button onclick="ajouterArticle('accueil')">Ajouter</button>
-  </div>
+  <div class="pagination" id="pagination-accueil"></div>
 </div>
 
-<!-- SECURITE -->
 <div id="securite" class="page">
   <div class="hero"><h2>🔒 Sécurité</h2><p>Protégez-vous des menaces en ligne.</p></div>
   <div id="articles-securite"></div>
-  <div class="add-article">
-    <h3>➕ Ajouter un article Sécurité</h3>
-    <input type="text" id="title-securite" placeholder="Titre">
-    <input type="text" id="desc-securite" placeholder="Description">
-    <button onclick="ajouterArticle('securite')">Ajouter</button>
-  </div>
+  <div class="pagination" id="pagination-securite"></div>
 </div>
 
-<!-- WINDOWS -->
 <div id="windows" class="page">
   <div class="hero"><h2>🪟 Windows</h2><p>Astuces et tutoriels pour Windows.</p></div>
   <div id="articles-windows"></div>
-  <div class="add-article">
-    <h3>➕ Ajouter un article Windows</h3>
-    <input type="text" id="title-windows" placeholder="Titre">
-    <input type="text" id="desc-windows" placeholder="Description">
-    <button onclick="ajouterArticle('windows')">Ajouter</button>
-  </div>
+  <div class="pagination" id="pagination-windows"></div>
 </div>
 
-<!-- MAC -->
 <div id="mac" class="page">
   <div class="hero"><h2>🍎 Mac</h2><p>Tout sur l'univers Apple.</p></div>
   <div id="articles-mac"></div>
-  <div class="add-article">
-    <h3>➕ Ajouter un article Mac</h3>
-    <input type="text" id="title-mac" placeholder="Titre">
-    <input type="text" id="desc-mac" placeholder="Description">
-    <button onclick="ajouterArticle('mac')">Ajouter</button>
-  </div>
+  <div class="pagination" id="pagination-mac"></div>
 </div>
 
-<!-- LINUX -->
 <div id="linux" class="page">
   <div class="hero"><h2>🐧 Linux</h2><p>Le monde du libre.</p></div>
   <div id="articles-linux"></div>
-  <div class="add-article">
-    <h3>➕ Ajouter un article Linux</h3>
-    <input type="text" id="title-linux" placeholder="Titre">
-    <input type="text" id="desc-linux" placeholder="Description">
-    <button onclick="ajouterArticle('linux')">Ajouter</button>
-  </div>
+  <div class="pagination" id="pagination-linux"></div>
 </div>
 
-<!-- IA -->
 <div id="ia" class="page">
   <div class="hero"><h2>🤖 Intelligence Artificielle</h2><p>Comprendre et utiliser l'IA.</p></div>
   <div id="articles-ia"></div>
-  <div class="add-article">
-    <h3>➕ Ajouter un article IA</h3>
-    <input type="text" id="title-ia" placeholder="Titre">
-    <input type="text" id="desc-ia" placeholder="Description">
-    <button onclick="ajouterArticle('ia')">Ajouter</button>
-  </div>
+  <div class="pagination" id="pagination-ia"></div>
 </div>
 
-<!-- PYTHON -->
 <div id="python" class="page">
   <div class="hero" style="background:linear-gradient(135deg,#306998,#FFD43B);"><h2>🐍 Formation Python</h2><p>De débutant à expert — 54 leçons.</p></div>
 
@@ -191,13 +161,13 @@ footer a{color:#4f46e5;margin:0 10px;text-decoration:none;cursor:pointer}
       <div class="lecon" onclick="ouvrirLecon('1.7')"><a>1.7 — Listes</a><span class="tag tag-deb">🟢 20 min</span></div>
       <div class="lecon" onclick="ouvrirLecon('1.8')"><a>1.8 — Dictionnaires</a><span class="tag tag-deb">🟢 20 min</span></div>
       <div class="lecon" onclick="ouvrirLecon('1.9')"><a>1.9 — Tuples et Sets</a><span class="tag tag-deb">🟢 15 min</span></div>
-      <div class="lecon" onclick="ouvrirLecon('1.10')"><a>1.10 — Chaînes de Caractères</a><span class="tag tag-deb">🟢 20 min</span></div>
+      <div class="lecon" onclick="ouvrirLecon('1.10')"><a>1.10 — Chaînes</a><span class="tag tag-deb">🟢 20 min</span></div>
     </div>
   </div>
 
   <div class="module">
     <div class="module-header" onclick="toggleModule(this)">
-      <h3>📚 Module 2 : Programmation Avancée <span class="tag tag-premium">🔒 Premium</span></h3>
+      <h3>📚 Module 2 : Avancé <span class="tag tag-premium">🔒 Premium</span></h3>
       <div class="meta">🟡 Intermédiaire · 12 leçons</div>
     </div>
     <div class="lecons">
@@ -244,13 +214,13 @@ footer a{color:#4f46e5;margin:0 10px;text-decoration:none;cursor:pointer}
     </div>
     <div class="lecons">
       <div class="lecon" onclick="ouvrirLecon('4.1')"><a>4.1 — Calculatrice</a><span class="tag tag-exp">🔴 30 min</span></div>
-      <div class="lecon" onclick="ouvrirLecon('4.2')"><a>4.2 — Gestionnaire de Contacts</a><span class="tag tag-exp">🔴 45 min</span></div>
-      <div class="lecon" onclick="ouvrirLecon('4.3')"><a>4.3 — Analyseur de Données</a><span class="tag tag-exp">🔴 50 min</span></div>
-      <div class="lecon" onclick="ouvrirLecon('4.4')"><a>4.4 — Web Flask</a><span class="tag tag-exp">🔴 60 min</span></div>
-      <div class="lecon" onclick="ouvrirLecon('4.5')"><a>4.5 — Scraper Web</a><span class="tag tag-exp">🔴 40 min</span></div>
+      <div class="lecon" onclick="ouvrirLecon('4.2')"><a>4.2 — Contacts</a><span class="tag tag-exp">🔴 45 min</span></div>
+      <div class="lecon" onclick="ouvrirLecon('4.3')"><a>4.3 — Analyseur</a><span class="tag tag-exp">🔴 50 min</span></div>
+      <div class="lecon" onclick="ouvrirLecon('4.4')"><a>4.4 — Flask</a><span class="tag tag-exp">🔴 60 min</span></div>
+      <div class="lecon" onclick="ouvrirLecon('4.5')"><a>4.5 — Scraper</a><span class="tag tag-exp">🔴 40 min</span></div>
       <div class="lecon" onclick="ouvrirLecon('4.6')"><a>4.6 — API REST</a><span class="tag tag-exp">🔴 45 min</span></div>
       <div class="lecon" onclick="ouvrirLecon('4.7')"><a>4.7 — Bot Discord</a><span class="tag tag-exp">🔴 35 min</span></div>
-      <div class="lecon" onclick="ouvrirLecon('4.8')"><a>4.8 — Jeu Python</a><span class="tag tag-exp">🔴 40 min</span></div>
+      <div class="lecon" onclick="ouvrirLecon('4.8')"><a>4.8 — Jeu</a><span class="tag tag-exp">🔴 40 min</span></div>
       <div class="lecon" onclick="ouvrirLecon('4.9')"><a>4.9 — Automatisation</a><span class="tag tag-exp">🔴 35 min</span></div>
       <div class="lecon" onclick="ouvrirLecon('4.10')"><a>4.10 — Dashboard</a><span class="tag tag-exp">🔴 50 min</span></div>
     </div>
@@ -284,7 +254,7 @@ footer a{color:#4f46e5;margin:0 10px;text-decoration:none;cursor:pointer}
     <div class="price-card">
       <h3>🆓 Découverte</h3>
       <div class="price">0<span>€</span></div>
-      <ul><li>Module 1 complet</li><li>Bases de Python</li><li>Accès à vie</li></ul>
+      <ul><li>Module 1 complet</li><li>Bases Python</li><li>Accès à vie</li></ul>
       <a href="#" class="btn">Commencer</a>
     </div>
     <div class="price-card popular">
@@ -303,7 +273,6 @@ footer a{color:#4f46e5;margin:0 10px;text-decoration:none;cursor:pointer}
   </div>
 </div>
 
-<!-- NEWSLETTER -->
 <div id="newsletter" class="page">
   <div class="hero" style="background:linear-gradient(135deg,#4f46e5,#7c3aed,#ec4899);text-align:center;">
     <div style="font-size:60px;">📬</div>
@@ -315,10 +284,23 @@ footer a{color:#4f46e5;margin:0 10px;text-decoration:none;cursor:pointer}
   <div class="card"><a href="#">🐧 Linux : 15 commandes à connaître</a><div class="meta">26 septembre 2026</div></div>
 </div>
 
-<!-- CONTACT -->
 <div id="contact" class="page">
-  <div class="hero"><h2>✉️ Contact</h2><p>Écrivez-nous !</p></div>
-  <div class="card"><p>📧 contact@actu-info.fr</p><p style="margin-top:10px;">Réponse sous 48h.</p></div>
+  <div class="hero"><h2>✉️ Contact</h2><p>Une question ? Écrivez-nous !</p></div>
+  <div class="contact-form">
+    <h3>📨 Envoyez-nous un message</h3>
+    <form action="mailto:TON-EMAIL@exemple.com" method="POST" enctype="text/plain">
+      <label>Votre nom</label>
+      <input type="text" name="nom" placeholder="Votre nom" required>
+      <label>Votre email</label>
+      <input type="email" name="email" placeholder="vous@exemple.com" required>
+      <label>Votre message</label>
+      <textarea name="message" placeholder="Votre message..." required></textarea>
+      <button type="submit">Envoyer →</button>
+    </form>
+    <div class="contact-info">
+      <p>💡 <strong>Réponse sous 48h.</strong></p>
+    </div>
+  </div>
 </div>
 
 </main>
@@ -328,92 +310,403 @@ footer a{color:#4f46e5;margin:0 10px;text-decoration:none;cursor:pointer}
 </footer>
 
 <script>
-// ARTICLES
-let articles = JSON.parse(localStorage.getItem('actuinfo_articles')) || {
-  accueil:[
-    {titre:"Phishing : les 7 signes qui ne trompent pas", desc:"Sécurité", date:"28 septembre 2026"},
-    {titre:"Réparer un PC lent en 30 minutes", desc:"Windows", date:"27 septembre 2026"},
-    {titre:"Les 15 commandes Linux à connaître", desc:"Linux", date:"26 septembre 2026"},
-    {titre:"ChatGPT : 15 prompts pour gagner du temps", desc:"IA", date:"25 septembre 2026"}
+// ============================================================
+// BASE D'ARTICLES — 50 PAR ONGLET
+// ============================================================
+
+const ARTICLES = {
+  accueil: [
+    {t:"Bienvenue sur Actu Info", d:"Présentation du blog", date:"28 septembre 2026"},
+    {t:"Phishing : les 7 signes qui ne trompent pas", d:"Sécurité", date:"28 septembre 2026"},
+    {t:"Réparer un PC lent en 30 minutes", d:"Windows", date:"27 septembre 2026"},
+    {t:"Les 15 commandes Linux à connaître", d:"Linux", date:"26 septembre 2026"},
+    {t:"ChatGPT : 15 prompts pour gagner du temps", d:"IA", date:"25 septembre 2026"},
+    {t:"Mac vs PC : lequel choisir en 2026 ?", d:"Comparatif", date:"24 septembre 2026"},
+    {t:"Les 10 meilleurs antivirus gratuits", d:"Sécurité", date:"23 septembre 2026"},
+    {t:"Sauvegarder ses données : le guide complet", d:"Pratique", date:"22 septembre 2026"},
+    {t:"Comprendre le cloud : AWS, Azure, Google", d:"Cloud", date:"21 septembre 2026"},
+    {t:"Le top 10 des langages de programmation", d:"Dev", date:"20 septembre 2026"},
+    {t:"VPN : comment ça marche vraiment ?", d:"Sécurité", date:"19 septembre 2026"},
+    {t:"Les raccourcis clavier indispensables", d:"Astuces", date:"18 septembre 2026"},
+    {t:"Comment choisir son premier PC portable", d:"Guide", date:"17 septembre 2026"},
+    {t:"Comprendre le HTTPS et les certificats", d:"Web", date:"16 septembre 2026"},
+    {t:"Le top des extensions navigateur 2026", d:"Web", date:"15 septembre 2026"},
+    {t:"Ransomware : comment s'en protéger", d:"Sécurité", date:"14 septembre 2026"},
+    {t:"Créer un site web : par où commencer ?", d:"Web", date:"13 septembre 2026"},
+    {t:"SSD vs HDD : que choisir ?", d:"Matériel", date:"12 septembre 2026"},
+    {t:"Les bases du réseau : IP, DNS, HTTP", d:"Réseau", date:"11 septembre 2026"},
+    {t:"Introduction à la cybersécurité", d:"Sécurité", date:"10 septembre 2026"},
+    {t:"Les métiers de l'informatique en 2026", d:"Carrière", date:"9 septembre 2026"},
+    {t:"Comprendre le Machine Learning", d:"IA", date:"8 septembre 2026"},
+    {t:"Le top des IDE pour développeurs", d:"Dev", date:"7 septembre 2026"},
+    {t:"Docker pour les débutants", d:"DevOps", date:"6 septembre 2026"},
+    {t:"Git et GitHub : le guide essentiel", d:"Dev", date:"5 septembre 2026"},
+    {t:"Les 10 erreurs à éviter en cybersécurité", d:"Sécurité", date:"4 septembre 2026"},
+    {t:"Comprendre les cookies et le RGPD", d:"Web", date:"3 septembre 2026"},
+    {t:"Les bases du Wi-Fi : 2.4 GHz vs 5 GHz", d:"Réseau", date:"2 septembre 2026"},
+    {t:"Le top des langages pour l'IA", d:"IA", date:"1 septembre 2026"},
+    {t:"Comment débuter en programmation", d:"Guide", date:"31 août 2026"},
+    {t:"Les bases du HTML et CSS", d:"Web", date:"30 août 2026"},
+    {t:"Introduction à Python", d:"Dev", date:"29 août 2026"},
+    {t:"Les 5 erreurs des débutants en JS", d:"Dev", date:"28 août 2026"},
+    {t:"Comprendre le protocole TCP/IP", d:"Réseau", date:"27 août 2026"},
+    {t:"Les bases de données expliquées", d:"Data", date:"26 août 2026"},
+    {t:"SQL vs NoSQL : que choisir ?", d:"Data", date:"25 août 2026"},
+    {t:"Le top des services cloud gratuits", d:"Cloud", date:"24 août 2026"},
+    {t:"Les bases de la cryptographie", d:"Sécurité", date:"23 août 2026"},
+    {t:"Blockchain expliquée simplement", d:"Tech", date:"22 août 2026"},
+    {t:"Les 10 meilleurs outils DevOps", d:"DevOps", date:"21 août 2026"},
+    {t:"Introduction à Kubernetes", d:"DevOps", date:"20 août 2026"},
+    {t:"CI/CD : qu'est-ce que c'est ?", d:"DevOps", date:"19 août 2026"},
+    {t:"Le top des frameworks JS 2026", d:"Dev", date:"18 août 2026"},
+    {t:"React vs Vue vs Angular", d:"Dev", date:"17 août 2026"},
+    {t:"Les bases du responsive design", d:"Web", date:"16 août 2026"},
+    {t:"Comprendre les API REST", d:"Dev", date:"15 août 2026"},
+    {t:"Introduction à GraphQL", d:"Dev", date:"14 août 2026"},
+    {t:"Les bases du SEO pour développeurs", d:"Web", date:"13 août 2026"},
+    {t:"Le top des outils de productivité", d:"Astuces", date:"12 août 2026"},
+    {t:"Comment organiser son code", d:"Dev", date:"11 août 2026"}
   ],
-  securite:[{titre:"Phishing : les 7 signes qui ne trompent pas", desc:"Reconnaître les emails frauduleux", date:"28 septembre 2026"}],
-  windows:[{titre:"Réparer un PC lent en 30 minutes", desc:"Guide pas à pas", date:"27 septembre 2026"}],
-  mac:[{titre:"Découvrir macOS Sequoia", desc:"Nouveautés 2026", date:"22 septembre 2026"}],
-  linux:[{titre:"Les 15 commandes Linux à connaître", desc:"Le guide essentiel", date:"26 septembre 2026"}],
-  ia:[{titre:"ChatGPT : 15 prompts pour gagner du temps", desc:"Exemples concrets", date:"25 septembre 2026"}]
+  securite: [
+    {t:"Phishing : les 7 signes qui ne trompent pas", d:"Reconnaître les emails frauduleux", date:"28 sept 2026"},
+    {t:"Créer un mot de passe vraiment solide", d:"Les bonnes pratiques", date:"27 sept 2026"},
+    {t:"VPN : lequel choisir en 2026 ?", d:"Comparatif", date:"26 sept 2026"},
+    {t:"Ransomware : comment s'en protéger", d:"Guide", date:"25 sept 2026"},
+    {t:"Les 10 meilleurs antivirus gratuits", d:"Comparatif", date:"24 sept 2026"},
+    {t:"Double authentification : pourquoi l'activer", d:"Guide", date:"23 sept 2026"},
+    {t:"Comprendre les fuites de données", d:"Actualité", date:"22 sept 2026"},
+    {t:"Sécuriser son Wi-Fi à la maison", d:"Guide", date:"21 sept 2026"},
+    {t:"Les arnaques en ligne à connaître", d:"Alerte", date:"20 sept 2026"},
+    {t:"Chiffrer ses fichiers sensibles", d:"Tutoriel", date:"19 sept 2026"},
+    {t:"Comprendre le HTTPS et SSL", d:"Guide", date:"18 sept 2026"},
+    {t:"Les bases du hacking éthique", d:"Formation", date:"17 sept 2026"},
+    {t:"Protéger ses enfants en ligne", d:"Guide", date:"16 sept 2026"},
+    {t:"Les 5 erreurs de cybersécurité", d:"Conseils", date:"15 sept 2026"},
+    {t:"Comprendre les attaques DDoS", d:"Guide", date:"14 sept 2026"},
+    {t:"Sécurité des mots de passe en entreprise", d:"Pro", date:"13 sept 2026"},
+    {t:"Les malwares expliqués simplement", d:"Guide", date:"12 sept 2026"},
+    {t:"Comment reconnaître un site frauduleux", d:"Guide", date:"11 sept 2026"},
+    {t:"Sécuriser ses emails professionnels", d:"Pro", date:"10 sept 2026"},
+    {t:"Les bases du chiffrement AES", d:"Formation", date:"9 sept 2026"},
+    {t:"Comprendre les certificats numériques", d:"Guide", date:"8 sept 2026"},
+    {t:"Protéger ses comptes bancaires en ligne", d:"Guide", date:"7 sept 2026"},
+    {t:"Les ransomwares les plus connus", d:"Actualité", date:"6 sept 2026"},
+    {t:"Comprendre le zero-day", d:"Guide", date:"5 sept 2026"},
+    {t:"Les bases du pentest", d:"Formation", date:"4 sept 2026"},
+    {t:"Sécuriser son smartphone Android", d:"Guide", date:"3 sept 2026"},
+    {t:"Sécuriser son iPhone", d:"Guide", date:"2 sept 2026"},
+    {t:"Les VPN gratuits : attention danger", d:"Alerte", date:"1 sept 2026"},
+    {t:"Comprendre la 2FA et ses limites", d:"Guide", date:"31 août 2026"},
+    {t:"Les attaques par force brute", d:"Guide", date:"30 août 2026"},
+    {t:"Sécuriser sa boîte mail", d:"Guide", date:"29 août 2026"},
+    {t:"Comprendre les injections SQL", d:"Formation", date:"28 août 2026"},
+    {t:"Les failles XSS expliquées", d:"Formation", date:"27 août 2026"},
+    {t:"Sécuriser un site WordPress", d:"Guide", date:"26 août 2026"},
+    {t:"Comprendre le chiffrement de bout en bout", d:"Guide", date:"25 août 2026"},
+    {t:"Les meilleurs gestionnaires de mots de passe", d:"Comparatif", date:"24 août 2026"},
+    {t:"Sécuriser ses sauvegardes", d:"Guide", date:"23 août 2026"},
+    {t:"Comprendre les attaques par ingénierie sociale", d:"Guide", date:"22 août 2026"},
+    {t:"Les bases du firewall", d:"Formation", date:"21 août 2026"},
+    {t:"Sécuriser un serveur Linux", d:"Pro", date:"20 août 2026"},
+    {t:"Comprendre les attaques MITM", d:"Guide", date:"19 août 2026"},
+    {t:"Les bases de la sécurité réseau", d:"Formation", date:"18 août 2026"},
+    {t:"Sécuriser ses objets connectés", d:"Guide", date:"17 août 2026"},
+    {t:"Comprendre le spam et ses dangers", d:"Guide", date:"16 août 2026"},
+    {t:"Les bases de la sécurité mobile", d:"Formation", date:"15 août 2026"},
+    {t:"Sécuriser son entreprise : par où commencer", d:"Pro", date:"14 août 2026"},
+    {t:"Comprendre les cyberattaques en 2026", d:"Actualité", date:"13 août 2026"},
+    {t:"Les bases de la cryptographie moderne", d:"Formation", date:"12 août 2026"},
+    {t:"Sécuriser ses transactions en ligne", d:"Guide", date:"11 août 2026"},
+    {t:"Comprendre la cyberdéfense", d:"Formation", date:"10 août 2026"},
+    {t:"Les 10 commandements de la cybersécurité", d:"Conseils", date:"9 août 2026"}
+  ],
+  windows: [
+    {t:"Réparer un PC lent en 30 minutes", d:"Guide pas à pas", date:"28 sept 2026"},
+    {t:"Les raccourcis clavier indispensables", d:"Astuces", date:"27 sept 2026"},
+    {t:"Nettoyer Windows sans logiciel", d:"Tutoriel", date:"26 sept 2026"},
+    {t:"Installer Windows 11 proprement", d:"Guide", date:"25 sept 2026"},
+    {t:"Désactiver les programmes au démarrage", d:"Astuce", date:"24 sept 2026"},
+    {t:"Gérer ses partitions sous Windows", d:"Tutoriel", date:"23 sept 2026"},
+    {t:"Les meilleurs logiciels gratuits Windows", d:"Sélection", date:"22 sept 2026"},
+    {t:"Créer une clé USB bootable", d:"Tutoriel", date:"21 sept 2026"},
+    {t:"Sauvegarder Windows facilement", d:"Guide", date:"20 sept 2026"},
+    {t:"Résoudre les erreurs Windows courantes", d:"Dépannage", date:"19 sept 2026"},
+    {t:"Optimiser Windows pour le gaming", d:"Tutoriel", date:"18 sept 2026"},
+    {t:"Désinstaller proprement un logiciel", d:"Astuce", date:"17 sept 2026"},
+    {t:"Comprendre le gestionnaire de tâches", d:"Guide", date:"16 sept 2026"},
+    {t:"Configurer Windows Defender", d:"Tutoriel", date:"15 sept 2026"},
+    {t:"Le mode sans échec expliqué", d:"Guide", date:"14 sept 2026"},
+    {t:"Récupérer des fichiers supprimés", d:"Tutoriel", date:"13 sept 2026"},
+    {t:"Les commandes CMD à connaître", d:"Astuces", date:"12 sept 2026"},
+    {t:"PowerShell pour débutants", d:"Formation", date:"11 sept 2026"},
+    {t:"Changer de disque dur sans réinstaller", d:"Tutoriel", date:"10 sept 2026"},
+    {t:"Comprendre le registre Windows", d:"Guide", date:"9 sept 2026"},
+    {t:"Réparer le démarrage de Windows", d:"Dépannage", date:"8 sept 2026"},
+    {t:"Les meilleurs antivirus pour Windows", d:"Comparatif", date:"7 sept 2026"},
+    {t:"Gérer les mises à jour Windows", d:"Guide", date:"6 sept 2026"},
+    {t:"Créer un point de restauration", d:"Tutoriel", date:"5 sept 2026"},
+    {t:"Personnaliser Windows à fond", d:"Astuces", date:"4 sept 2026"},
+    {t:"Les meilleurs fonds d'écran 2026", d:"Sélection", date:"3 sept 2026"},
+    {t:"Comprendre le BIOS et l'UEFI", d:"Guide", date:"2 sept 2026"},
+    {t:"Réinitialiser Windows proprement", d:"Tutoriel", date:"1 sept 2026"},
+    {t:"Le top des thèmes Windows", d:"Sélection", date:"31 août 2026"},
+    {t:"Comment désinstaller Edge", d:"Astuce", date:"30 août 2026"},
+    {t:"Les meilleurs navigateurs pour Windows", d:"Comparatif", date:"29 août 2026"},
+    {t:"Configurer un VPN sous Windows", d:"Tutoriel", date:"28 août 2026"},
+    {t:"Partager des fichiers en réseau local", d:"Tutoriel", date:"27 août 2026"},
+    {t:"Comprendre les services Windows", d:"Guide", date:"26 août 2026"},
+    {t:"Résoudre les problèmes de son", d:"Dépannage", date:"25 août 2026"},
+    {t:"Résoudre les problèmes d'écran bleu", d:"Dépannage", date:"24 août 2026"},
+    {t:"Les meilleurs outils de diagnostic", d:"Sélection", date:"23 août 2026"},
+    {t:"Gérer les utilisateurs Windows", d:"Guide", date:"22 août 2026"},
+    {t:"Activer BitLocker", d:"Tutoriel", date:"21 août 2026"},
+    {t:"Utiliser WSL (Linux sous Windows)", d:"Formation", date:"20 août 2026"},
+    {t:"Les bases du pare-feu Windows", d:"Guide", date:"19 août 2026"},
+    {t:"Nettoyer le registre en sécurité", d:"Guide", date:"18 août 2026"},
+    {t:"Optimiser les performances SSD", d:"Astuce", date:"17 août 2026"},
+    {t:"Comprendre les profils d'alimentation", d:"Guide", date:"16 août 2026"},
+    {t:"Réparer Windows Update", d:"Dépannage", date:"15 août 2026"},
+    {t:"Les meilleurs jeux gratuits Windows", d:"Sélection", date:"14 août 2026"},
+    {t:"Créer un serveur Windows", d:"Pro", date:"13 août 2026"},
+    {t:"Les bases d'Active Directory", d:"Pro", date:"12 août 2026"},
+    {t:"Gérer les impressions sous Windows", d:"Tutoriel", date:"11 août 2026"},
+    {t:"Le top des logiciels de montage vidéo", d:"Sélection", date:"10 août 2026"},
+    {t:"Les meilleurs logiciels de bureautique", d:"Sélection", date:"9 août 2026"}
+  ],
+  mac: [
+    {t:"Découvrir macOS Sequoia", d:"Nouveautés 2026", date:"28 sept 2026"},
+    {t:"Les raccourcis clavier Mac essentiels", d:"Astuces", date:"27 sept 2026"},
+    {t:"Time Machine : sauvegarder son Mac", d:"Tutoriel", date:"26 sept 2026"},
+    {t:"Bien débuter avec un Mac", d:"Guide", date:"25 sept 2026"},
+    {t:"Personnaliser macOS", d:"Astuces", date:"24 sept 2026"},
+    {t:"Les meilleures apps Mac gratuites", d:"Sélection", date:"23 sept 2026"},
+    {t:"Comprendre le Finder", d:"Guide", date:"22 sept 2026"},
+    {t:"Utiliser Spotlight efficacement", d:"Astuce", date:"21 sept 2026"},
+    {t:"Gérer les fenêtres sur Mac", d:"Tutoriel", date:"20 sept 2026"},
+    {t:"Découvrir iCloud", d:"Guide", date:"19 sept 2026"},
+    {t:"Installer Windows sur Mac (Boot Camp)", d:"Tutoriel", date:"18 sept 2026"},
+    {t:"Les meilleurs antivirus pour Mac", d:"Comparatif", date:"17 sept 2026"},
+    {t:"Comprendre les permissions macOS", d:"Guide", date:"16 sept 2026"},
+    {t:"Les meilleurs logiciels de montage Mac", d:"Sélection", date:"15 sept 2026"},
+    {t:"Utiliser le Terminal sur Mac", d:"Formation", date:"14 sept 2026"},
+    {t:"Optimiser les performances du Mac", d:"Astuce", date:"13 sept 2026"},
+    {t:"Réparer un Mac lent", d:"Dépannage", date:"12 sept 2026"},
+    {t:"Découvrir les widgets macOS", d:"Astuce", date:"11 sept 2026"},
+    {t:"Le top des jeux sur Mac", d:"Sélection", date:"10 sept 2026"},
+    {t:"Comprendre les processeurs M1, M2, M3", d:"Guide", date:"9 sept 2026"},
+    {t:"Les bases du Touch ID", d:"Guide", date:"8 sept 2026"},
+    {t:"Configurer un VPN sur Mac", d:"Tutoriel", date:"7 sept 2026"},
+    {t:"Comprendre les extensions Safari", d:"Guide", date:"6 sept 2026"},
+    {t:"Gérer les mises à jour macOS", d:"Guide", date:"5 sept 2026"},
+    {t:"Les meilleurs fonds d'écran Mac", d:"Sélection", date:"4 sept 2026"},
+    {t:"Créer une clé USB bootable macOS", d:"Tutoriel", date:"3 sept 2026"},
+    {t:"Réinitialiser un Mac proprement", d:"Tutoriel", date:"2 sept 2026"},
+    {t:"Comprendre AirDrop", d:"Guide", date:"1 sept 2026"},
+    {t:"Utiliser Handoff et Continuity", d:"Astuce", date:"31 août 2026"},
+    {t:"Les meilleurs accessoires Mac", d:"Sélection", date:"30 août 2026"},
+    {t:"Bien choisir son MacBook", d:"Guide", date:"29 août 2026"},
+    {t:"Les bases de Photos sur Mac", d:"Tutoriel", date:"28 août 2026"},
+    {t:"Utiliser Pages, Numbers, Keynote", d:"Formation", date:"27 août 2026"},
+    {t:"Comprendre les partages Mac", d:"Guide", date:"26 août 2026"},
+    {t:"Les meilleures apps productivité Mac", d:"Sélection", date:"25 août 2026"},
+    {t:"Personnaliser la barre de menus", d:"Astuce", date:"24 août 2026"},
+    {t:"Comprendre le Dock", d:"Guide", date:"23 août 2026"},
+    {t:"Les bases de Safari", d:"Guide", date:"22 août 2026"},
+    {t:"Comprendre les profils de configuration", d:"Pro", date:"21 août 2026"},
+    {t:"Utiliser Xcode pour débuter", d:"Formation", date:"20 août 2026"},
+    {t:"Le top des apps de design sur Mac", d:"Sélection", date:"19 août 2026"},
+    {t:"Comprendre Gatekeeper", d:"Guide", date:"18 août 2026"},
+    {t:"Les meilleurs jeux sur Apple Arcade", d:"Sélection", date:"17 août 2026"},
+    {t:"Configurer Time Capsule", d:"Tutoriel", date:"16 août 2026"},
+    {t:"Les bases de l'automatisation Mac", d:"Formation", date:"15 août 2026"},
+    {t:"Comprendre le contrôle de mission", d:"Guide", date:"14 août 2026"},
+    {t:"Utiliser Launchpad efficacement", d:"Astuce", date:"13 août 2026"},
+    {t:"Comprendre les notifications macOS", d:"Guide", date:"12 août 2026"},
+    {t:"Les meilleurs outils développeur Mac", d:"Sélection", date:"11 août 2026"},
+    {t:"Comprendre le chiffrement FileVault", d:"Guide", date:"10 août 2026"},
+    {t:"Les bases de la sécurité sur Mac", d:"Formation", date:"9 août 2026"}
+  ],
+  linux: [
+    {t:"Les 15 commandes Linux à connaître", d:"Guide essentiel", date:"28 sept 2026"},
+    {t:"Installer Ubuntu facilement", d:"Tutoriel", date:"27 sept 2026"},
+    {t:"Comprendre le terminal Linux", d:"Formation", date:"26 sept 2026"},
+    {t:"Les meilleures distributions 2026", d:"Sélection", date:"25 sept 2026"},
+    {t:"Bien débuter avec Linux", d:"Guide", date:"24 sept 2026"},
+    {t:"Gérer les paquets avec apt", d:"Tutoriel", date:"23 sept 2026"},
+    {t:"Comprendre les permissions Linux", d:"Guide", date:"22 sept 2026"},
+    {t:"Les bases du shell Bash", d:"Formation", date:"21 sept 2026"},
+    {t:"Configurer un serveur Linux", d:"Pro", date:"20 sept 2026"},
+    {t:"Les meilleurs éditeurs de texte Linux", d:"Sélection", date:"19 sept 2026"},
+    {t:"Comprendre systemd", d:"Guide", date:"18 sept 2026"},
+    {t:"Sécuriser un serveur Linux", d:"Pro", date:"17 sept 2026"},
+    {t:"Les bases de SSH", d:"Formation", date:"16 sept 2026"},
+    {t:"Comprendre le noyau Linux", d:"Guide", date:"15 sept 2026"},
+    {t:"Installer des logiciels sous Linux", d:"Guide", date:"14 sept 2026"},
+    {t:"Les meilleures apps Linux", d:"Sélection", date:"13 sept 2026"},
+    {t:"Comprendre les variables d'environnement", d:"Guide", date:"12 sept 2026"},
+    {t:"Les bases du scripting Bash", d:"Formation", date:"11 sept 2026"},
+    {t:"Utiliser Vim efficacement", d:"Formation", date:"10 sept 2026"},
+    {t:"Comprendre les crontabs", d:"Guide", date:"9 sept 2026"},
+    {t:"Les meilleurs gestionnaires de fenêtres", d:"Sélection", date:"8 sept 2026"},
+    {t:"Comprendre les systèmes de fichiers", d:"Guide", date:"7 sept 2026"},
+    {t:"Utiliser Docker sous Linux", d:"Formation", date:"6 sept 2026"},
+    {t:"Les bases de la virtualisation", d:"Formation", date:"5 sept 2026"},
+    {t:"Comprendre GRUB", d:"Guide", date:"4 sept 2026"},
+    {t:"Résoudre les problèmes de démarrage", d:"Dépannage", date:"3 sept 2026"},
+    {t:"Les bases de la compilation", d:"Formation", date:"2 sept 2026"},
+    {t:"Comprendre le gestionnaire de tâches", d:"Guide", date:"1 sept 2026"},
+    {t:"Les meilleurs outils de monitoring", d:"Sélection", date:"31 août 2026"},
+    {t:"Comprendre iptables", d:"Pro", date:"30 août 2026"},
+    {t:"Les bases du réseau Linux", d:"Formation", date:"29 août 2026"},
+    {t:"Utiliser tmux", d:"Formation", date:"28 août 2026"},
+    {t:"Comprendre les logs Linux", d:"Guide", date:"27 août 2026"},
+    {t:"Les meilleurs IDE Linux", d:"Sélection", date:"26 août 2026"},
+    {t:"Comprendre les processus Linux", d:"Guide", date:"25 août 2026"},
+    {t:"Utiliser grep efficacement", d:"Formation", date:"24 août 2026"},
+    {t:"Comprendre les pipes et redirections", d:"Formation", date:"23 août 2026"},
+    {t:"Les bases de sed et awk", d:"Formation", date:"22 août 2026"},
+    {t:"Comprendre les utilisateurs et groupes", d:"Guide", date:"21 août 2026"},
+    {t:"Les bases du partitionnement", d:"Guide", date:"20 août 2026"},
+    {t:"Comprendre LVM", d:"Pro", date:"19 août 2026"},
+    {t:"Les meilleurs thèmes Linux", d:"Sélection", date:"18 août 2026"},
+    {t:"Comprendre Wayland vs X11", d:"Guide", date:"17 août 2026"},
+    {t:"Utiliser Ansible", d:"Pro", date:"16 août 2026"},
+    {t:"Les bases de Kubernetes", d:"Pro", date:"15 août 2026"},
+    {t:"Comprendre les conteneurs", d:"Formation", date:"14 août 2026"},
+    {t:"Les meilleurs serveurs web Linux", d:"Sélection", date:"13 août 2026"},
+    {t:"Comprendre Nginx", d:"Pro", date:"12 août 2026"},
+    {t:"Les bases de la sauvegarde Linux", d:"Formation", date:"11 août 2026"},
+    {t:"Comprendre SELinux", d:"Pro", date:"10 août 2026"},
+    {t:"Les 10 erreurs de débutant Linux", d:"Conseils", date:"9 août 2026"}
+  ],
+  ia: [
+    {t:"ChatGPT : 15 prompts pour gagner du temps", d:"Exemples concrets", date:"28 sept 2026"},
+    {t:"Midjourney : créer des images avec l'IA", d:"Tutoriel", date:"27 sept 2026"},
+    {t:"Comprendre les LLM", d:"Formation", date:"26 sept 2026"},
+    {t:"Les meilleurs outils IA gratuits", d:"Sélection", date:"25 sept 2026"},
+    {t:"Comprendre GPT-4 et GPT-5", d:"Guide", date:"24 sept 2026"},
+    {t:"Créer un chatbot avec l'IA", d:"Tutoriel", date:"23 sept 2026"},
+    {t:"Comprendre le Machine Learning", d:"Formation", date:"22 sept 2026"},
+    {t:"Les bases du Deep Learning", d:"Formation", date:"21 sept 2026"},
+    {t:"Comprendre les réseaux de neurones", d:"Formation", date:"20 sept 2026"},
+    {t:"Utiliser Stable Diffusion", d:"Tutoriel", date:"19 sept 2026"},
+    {t:"Les meilleures IA pour coder", d:"Sélection", date:"18 sept 2026"},
+    {t:"Comprendre les hallucinations d'IA", d:"Guide", date:"17 sept 2026"},
+    {t:"Générer des vidéos avec l'IA", d:"Tutoriel", date:"16 sept 2026"},
+    {t:"Les IA pour la productivité", d:"Sélection", date:"15 sept 2026"},
+    {t:"Comprendre le NLP", d:"Formation", date:"14 sept 2026"},
+    {t:"Les bases du prompt engineering", d:"Formation", date:"13 sept 2026"},
+    {t:"Comprendre les transformers", d:"Formation", date:"12 sept 2026"},
+    {t:"Utiliser Claude et Gemini", d:"Guide", date:"11 sept 2026"},
+    {t:"Les IA pour créer de la musique", d:"Sélection", date:"10 sept 2026"},
+    {t:"Comprendre les biais des IA", d:"Guide", date:"9 sept 2026"},
+    {t:"Les IA pour traduire", d:"Sélection", date:"8 sept 2026"},
+    {t:"Comprendre l'apprentissage supervisé", d:"Formation", date:"7 sept 2026"},
+    {t:"Les bases de PyTorch", d:"Formation", date:"6 sept 2026"},
+    {t:"Comprendre TensorFlow", d:"Formation", date:"5 sept 2026"},
+    {t:"Les IA pour la santé", d:"Actualité", date:"4 sept 2026"},
+    {t:"Comprendre les GAN", d:"Formation", date:"3 sept 2026"},
+    {t:"Les IA pour l'éducation", d:"Actualité", date:"2 sept 2026"},
+    {t:"Comprendre les IA génératives", d:"Guide", date:"1 sept 2026"},
+    {t:"Les IA pour le design", d:"Sélection", date:"31 août 2026"},
+    {t:"Comprendre le reinforcement learning", d:"Formation", date:"30 août 2026"},
+    {t:"Utiliser les API OpenAI", d:"Tutoriel", date:"29 août 2026"},
+    {t:"Les IA pour la rédaction", d:"Sélection", date:"28 août 2026"},
+    {t:"Comprendre les embeddings", d:"Formation", date:"27 août 2026"},
+    {t:"Les IA pour le code", d:"Sélection", date:"26 août 2026"},
+    {t:"Comprendre les modèles open source", d:"Guide", date:"25 août 2026"},
+    {t:"Les IA pour la data science", d:"Sélection", date:"24 août 2026"},
+    {t:"Comprendre AutoML", d:"Formation", date:"23 août 2026"},
+    {t:"Les IA pour le marketing", d:"Sélection", date:"22 août 2026"},
+    {t:"Comprendre les IA multimodales", d:"Guide", date:"21 août 2026"},
+    {t:"Les IA pour la cybersécurité", d:"Sélection", date:"20 août 2026"},
+    {t:"Comprendre les coûts des IA", d:"Guide", date:"19 août 2026"},
+    {t:"Les IA pour le support client", d:"Sélection", date:"18 août 2026"},
+    {t:"Comprendre les agents IA", d:"Guide", date:"17 août 2026"},
+    {t:"Les IA pour la recherche", d:"Sélection", date:"16 août 2026"},
+    {t:"Comprendre RAG", d:"Formation", date:"15 août 2026"},
+    {t:"Les IA pour l'image", d:"Sélection", date:"14 août 2026"},
+    {t:"Comprendre le fine-tuning", d:"Formation", date:"13 août 2026"},
+    {t:"Les IA pour la voix", d:"Sélection", date:"12 août 2026"},
+    {t:"Comprendre les IA embarquées", d:"Guide", date:"11 août 2026"},
+    {t:"L'avenir de l'IA en 2026", d:"Analyse", date:"10 août 2026"}
+  ]
 };
 
-function afficherArticles(page){
-  const c = document.getElementById('articles-'+page);
-  if(!c) return;
-  const liste = articles[page] || [];
-  if(liste.length===0){c.innerHTML='<p style="color:#888;text-align:center;padding:20px;">Aucun article.</p>';return;}
-  c.innerHTML = liste.map((a,i)=>`
+// ============================================================
+// AFFICHAGE AVEC PAGINATION (10 articles par page)
+// ============================================================
+
+const PAR_PAGE = 10;
+const pagesActives = {accueil:1, securite:1, windows:1, mac:1, linux:1, ia:1};
+
+function afficherArticles(page, numPage){
+  const cont = document.getElementById('articles-' + page);
+  const pag = document.getElementById('pagination-' + page);
+  if(!cont || !pag) return;
+  const liste = ARTICLES[page] || [];
+  const total = Math.ceil(liste.length / PAR_PAGE);
+  const p = numPage || 1;
+  pagesActives[page] = p;
+  const debut = (p-1) * PAR_PAGE;
+  const fin = debut + PAR_PAGE;
+  const tranche = liste.slice(debut, fin);
+
+  cont.innerHTML = tranche.map(a => `
     <div class="card">
-      <button class="btn-del" onclick="supprimerArticle('${page}',${i})">✕</button>
-      <a href="#">${a.titre}</a>
-      <div class="meta">${a.date}${a.desc?' — '+a.desc:''}</div>
-    </div>`).join('');
+      <a href="#">${a.t}</a>
+      <div class="meta">${a.date}${a.d ? ' — ' + a.d : ''}</div>
+    </div>
+  `).join('');
+
+  let btns = '';
+  for(let i = 1; i <= total; i++){
+    btns += `<button class="${i===p?'active':''}" onclick="afficherArticles('${page}', ${i})">${i}</button>`;
+  }
+  pag.innerHTML = btns;
 }
 
-function ajouterArticle(page){
-  const t = document.getElementById('title-'+page).value.trim();
-  const d = document.getElementById('desc-'+page).value.trim();
-  if(!t){alert('Mets un titre !');return;}
-  const date = new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
-  if(!articles[page]) articles[page]=[];
-  articles[page].unshift({titre:t,desc:d,date});
-  localStorage.setItem('actuinfo_articles',JSON.stringify(articles));
-  afficherArticles(page);
-  document.getElementById('title-'+page).value='';
-  document.getElementById('desc-'+page).value='';
-  alert('✅ Article ajouté !');
-}
+// ============================================================
+// NAVIGATION ONGLETS
+// ============================================================
 
-function supprimerArticle(page,i){
-  if(!confirm('Supprimer cet article ?'))return;
-  articles[page].splice(i,1);
-  localStorage.setItem('actuinfo_articles',JSON.stringify(articles));
-  afficherArticles(page);
-}
-
-// ONGLETS
-document.querySelectorAll('.tab').forEach(link=>{
-  link.addEventListener('click',(e)=>{
+document.querySelectorAll('.tab').forEach(link => {
+  link.addEventListener('click', (e) => {
     e.preventDefault();
     const page = link.dataset.page;
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     document.getElementById(page).classList.add('active');
-    document.querySelectorAll('.tab[data-page="'+page+'"]').forEach(t=>t.classList.add('active'));
-    if(['accueil','securite','windows','mac','linux','ia'].includes(page)) afficherArticles(page);
+    document.querySelectorAll('.tab[data-page="'+page+'"]').forEach(t => t.classList.add('active'));
+    if(['accueil','securite','windows','mac','linux','ia'].includes(page)){
+      afficherArticles(page, 1);
+    }
     window.scrollTo(0,0);
   });
 });
 
 function toggleModule(h){h.nextElementSibling.classList.toggle('open');}
 
-// LEÇONS
+// ============================================================
+// LEÇONS PYTHON
+// ============================================================
+
 const LECONS = {
 "1.1":`<h2>1.1 — Introduction à Python</h2><div class="lesson-meta">🟢 Débutant · 15 min</div>
 <h3>🐍 Qu'est-ce que Python ?</h3>
-<p>Python est un langage créé en 1991 par Guido van Rossum. C'est l'un des plus populaires au monde.</p>
-<p>Utilisé pour :</p>
-<ul><li>🌐 Web (Django, Flask)</li><li>📊 Data (Pandas, NumPy)</li><li>🤖 IA (TensorFlow)</li><li>🔧 Automatisation</li></ul>
-<h3>✨ Pourquoi apprendre Python ?</h3>
-<ul><li>Facile — syntaxe claire</li><li>Très demandé</li><li>Polyvalent</li></ul>
-<h3>💻 Premier aperçu</h3>
-<pre><code>print("Bonjour le monde !")
+<p>Python est un langage créé en 1991 par Guido van Rossum.</p>
+<ul><li>🌐 Web</li><li>📊 Data</li><li>🤖 IA</li><li>🔧 Automatisation</li></ul>
+<h3>💻 Exemple</h3>
+<pre><code>print("Bonjour !")
 nom = "Estephania"
 print(f"Salut {nom}")</code></pre>
-<div class="tip">💡 Python utilise l'indentation (espaces) — obligatoire !</div>
+<div class="tip">💡 Python utilise l'indentation !</div>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
 "1.2":`<h2>1.2 — Installation</h2><div class="lesson-meta">🟢 Débutant · 20 min</div>
 <h3>📥 Télécharger</h3><p>Va sur <strong>python.org</strong> → Downloads.</p>
 <h3>⚙️ Windows</h3>
-<ol><li>Lance le .exe</li><li><strong>⚠️ Coche "Add Python to PATH"</strong></li><li>Install Now</li></ol>
-<h3>✅ Vérifier</h3>
+<p>⚠️ Coche <strong>"Add Python to PATH"</strong> avant d'installer.</p>
 <pre><code>python --version
 # Python 3.12.0</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
@@ -425,19 +718,13 @@ taille = 1.65
 majeur = True</code></pre>
 <h3>🎨 Types</h3>
 <ul><li><strong>str</strong> — "Bonjour"</li><li><strong>int</strong> — 42</li><li><strong>float</strong> — 3.14</li><li><strong>bool</strong> — True/False</li></ul>
-<pre><code>x = 42
-print(type(x))   # &lt;class 'int'&gt;</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
 "1.4":`<h2>1.4 — Opérateurs</h2><div class="lesson-meta">🟢 Débutant · 20 min</div>
 <pre><code>a = 10; b = 3
 print(a + b)   # 13
 print(a // b)  # 3
-print(a % b)   # 1
 print(a ** b)  # 1000</code></pre>
-<pre><code>5 == 5   # True
-5 != 3   # True
-5 > 3    # True</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
 "1.5":`<h2>1.5 — Conditions</h2><div class="lesson-meta">🟢 Débutant · 25 min</div>
@@ -446,103 +733,70 @@ if age >= 18:
     print("Majeur")
 else:
     print("Mineur")</code></pre>
-<pre><code>note = 15
-if note >= 16: print("Très bien")
-elif note >= 14: print("Bien")
-else: print("Passable")</code></pre>
-<div class="tip">⚠️ Indentation : 4 espaces</div>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
 "1.6":`<h2>1.6 — Boucles</h2><div class="lesson-meta">🟢 Débutant · 25 min</div>
 <pre><code>for i in range(5):
-    print(i)   # 0 1 2 3 4</code></pre>
-<pre><code>n = 0
-while n < 5:
-    print(n)
-    n += 1</code></pre>
+    print(i)</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
 "1.7":`<h2>1.7 — Listes</h2><div class="lesson-meta">🟢 Débutant · 20 min</div>
 <pre><code>fruits = ["pomme", "banane"]
-fruits.append("cerise")
-print(fruits[0])   # pomme
-print(fruits[-1])  # cerise</code></pre>
+fruits.append("cerise")</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
 "1.8":`<h2>1.8 — Dictionnaires</h2><div class="lesson-meta">🟢 Débutant · 20 min</div>
-<pre><code>personne = {"nom": "Dupont", "age": 30}
-print(personne["nom"])</code></pre>
+<pre><code>personne = {"nom": "Dupont", "age": 30}</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
 "1.9":`<h2>1.9 — Tuples et Sets</h2><div class="lesson-meta">🟢 Débutant · 15 min</div>
-<pre><code>coord = (48.85, 2.35)   # Tuple
-nombres = {1, 2, 3, 3}  # Set → {1,2,3}</code></pre>
+<pre><code>coord = (48.85, 2.35)
+nombres = {1, 2, 3, 3}</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
-"1.10":`<h2>1.10 — Chaînes de Caractères</h2><div class="lesson-meta">🟢 Débutant · 20 min</div>
+"1.10":`<h2>1.10 — Chaînes</h2><div class="lesson-meta">🟢 Débutant · 20 min</div>
 <pre><code>nom = "Python"
-print(f"J'aime {nom}")
-print(nom.upper())   # PYTHON
-print(nom.lower())   # python</code></pre>
+print(nom.upper())   # PYTHON</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
 "2.1":`<h2>2.1 — Les Fonctions</h2><div class="lesson-meta">🟡 Intermédiaire · 30 min</div>
 <pre><code>def saluer(nom):
-    return f"Bonjour {nom} !"
-
-print(saluer("Estephania"))</code></pre>
+    return f"Bonjour {nom} !"</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
 "2.2":`<h2>2.2 — Lambda</h2><div class="lesson-meta">🟡 Intermédiaire · 20 min</div>
-<pre><code>carre = lambda x: x * x
-print(carre(5))   # 25</code></pre>
+<pre><code>carre = lambda x: x * x</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
 "2.3":`<h2>2.3 — POO</h2><div class="lesson-meta">🟡 Intermédiaire · 35 min</div>
 <pre><code>class Chien:
     def __init__(self, nom):
-        self.nom = nom
-    def aboyer(self):
-        return f"{self.nom} dit Wouf !"
-
-rex = Chien("Rex")
-print(rex.aboyer())</code></pre>
+        self.nom = nom</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
 "3.1":`<h2>3.1 — NumPy</h2><div class="lesson-meta">🟡 Intermédiaire · 35 min</div>
 <pre><code>import numpy as np
-arr = np.array([1, 2, 3, 4, 5])
-print(arr.mean())   # 3.0</code></pre>
+arr = np.array([1, 2, 3])</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
 "3.2":`<h2>3.2 — Pandas</h2><div class="lesson-meta">🟡 Intermédiaire · 40 min</div>
-<pre><code>import pandas as pd
-df = pd.DataFrame({"nom":["A","B"],"age":[25,30]})
-print(df)</code></pre>
+<pre><code>import pandas as pd</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
-"4.1":`<h2>4.1 — Projet Calculatrice</h2><div class="lesson-meta">🔴 Expert · 30 min</div>
+"4.1":`<h2>4.1 — Calculatrice</h2><div class="lesson-meta">🔴 Expert · 30 min</div>
 <pre><code>def calculer(a, b, op):
-    if op == "+": return a + b
-    if op == "-": return a - b
-    if op == "*": return a * b
-    if op == "/": return a / b
-
-print(calculer(10, 5, "+"))   # 15</code></pre>
+    if op == "+": return a + b</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`,
 
 "5.1":`<h2>5.1 — Data Science</h2><div class="lesson-meta">🔴 Expert · 45 min</div>
-<p>La Data Science combine statistiques, programmation et analyse.</p>
-<pre><code>import pandas as pd
-data = pd.read_csv("data.csv")
-print(data.describe())</code></pre>
+<pre><code>import pandas as pd</code></pre>
 <button class="back-btn" onclick="retourPython()">← Retour</button>`
 };
 
 function ouvrirLecon(id){
   const c = document.getElementById('lecon-content');
   const cont = document.getElementById('lecon-container');
-  c.innerHTML = LECONS[id] || '<h2>Leçon en préparation</h2><p>Contenu bientôt disponible.</p><button class="back-btn" onclick="retourPython()">← Retour</button>';
+  c.innerHTML = LECONS[id] || '<h2>Leçon en préparation</h2><button class="back-btn" onclick="retourPython()">← Retour</button>';
   cont.style.display = 'block';
   cont.scrollIntoView({behavior:'smooth'});
 }
@@ -553,7 +807,7 @@ function retourPython(){
 }
 
 // INITIALISATION
-afficherArticles('accueil');
+afficherArticles('accueil', 1);
 </script>
 
 </body>
